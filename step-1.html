@@ -1,0 +1,2454 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Первая образовательная ступень проекта «ЛИДЕР»: короткие жизненные ситуации о честности, бережности и управлении собой."
+    />
+    <meta name="theme-color" content="#101c2b" />
+    <title>ЛИДЕР — Ступень 1: Власть начинается с себя</title>
+    <style>:root {
+  --ink: #132033;
+  --ink-soft: #566173;
+  --paper: #f5f1e9;
+  --paper-deep: #e9e1d4;
+  --navy: #101c2b;
+  --navy-2: #182a41;
+  --red: #b63a32;
+  --red-dark: #8f2823;
+  --blue: #315e8c;
+  --line: rgba(19, 32, 51, 0.18);
+  --white: #fffdf8;
+  --shadow: 0 24px 80px rgba(16, 28, 43, 0.12);
+  --radius: 4px;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  min-height: 100vh;
+}
+
+button,
+textarea,
+select,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+.site-header {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(245, 241, 233, 0.92);
+  backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  background: var(--navy);
+  font: 700 23px/1 var(--serif);
+}
+
+.brand-copy {
+  display: grid;
+  gap: 1px;
+}
+
+.brand-copy strong {
+  letter-spacing: 0.16em;
+  font-size: 14px;
+}
+
+.brand-copy small {
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+.stage-chip {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 13px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+main {
+  min-height: calc(100vh - 76px);
+}
+
+.screen {
+  display: none;
+  animation: screenIn 320ms ease both;
+}
+
+.screen.is-active {
+  display: block;
+}
+
+@keyframes screenIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  padding: clamp(42px, 8vw, 110px) clamp(20px, 7vw, 110px) 30px;
+}
+
+.hero-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.7fr);
+  gap: clamp(48px, 8vw, 120px);
+  align-items: center;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 24px;
+  font: 700 clamp(62px, 9vw, 124px) / 0.88 var(--serif);
+  letter-spacing: -0.055em;
+  color: var(--navy);
+}
+
+h2 {
+  font: 700 clamp(34px, 5vw, 58px) / 1 var(--serif);
+  letter-spacing: -0.035em;
+}
+
+h3 {
+  font: 700 25px/1.15 var(--serif);
+}
+
+.hero-lead {
+  max-width: 690px;
+  margin-bottom: 34px;
+  color: var(--ink-soft);
+  font: 400 clamp(18px, 2vw, 23px) / 1.48 var(--serif);
+}
+
+.hero-facts {
+  display: flex;
+  gap: clamp(26px, 4vw, 56px);
+  margin-bottom: 38px;
+}
+
+.hero-facts div {
+  display: grid;
+  gap: 3px;
+}
+
+.hero-facts strong {
+  font: 700 28px/1 var(--serif);
+  color: var(--navy);
+}
+
+.hero-facts span {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.primary-button,
+.secondary-button,
+.text-button,
+.back-button,
+.exit-button {
+  border: 0;
+  border-radius: var(--radius);
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.primary-button {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 14px 22px;
+  background: var(--red);
+  color: white;
+  font-weight: 750;
+  box-shadow: 0 12px 30px rgba(182, 58, 50, 0.19);
+}
+
+.primary-button:hover:not(:disabled) {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+  box-shadow: none;
+}
+
+.secondary-button {
+  min-height: 52px;
+  padding: 13px 20px;
+  color: var(--navy);
+  background: transparent;
+  border: 1px solid var(--line);
+  font-weight: 700;
+}
+
+.secondary-button:hover {
+  border-color: var(--navy);
+}
+
+.text-button,
+.back-button,
+.exit-button {
+  color: var(--ink-soft);
+  background: transparent;
+  padding: 12px 0;
+}
+
+.text-button {
+  display: block;
+  margin-top: 9px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.back-button {
+  margin-bottom: 32px;
+}
+
+.hero-card {
+  position: relative;
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(30px, 5vw, 58px);
+  color: var(--white);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.04), transparent 40%),
+    var(--navy);
+  box-shadow: var(--shadow);
+}
+
+.hero-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 38%;
+  background: var(--red);
+}
+
+.card-index {
+  position: absolute;
+  top: 28px;
+  right: 30px;
+  color: rgba(255, 255, 255, 0.27);
+  font: 700 50px/1 var(--serif);
+}
+
+.hero-card p {
+  color: rgba(255, 255, 255, 0.72);
+  font: 400 19px/1.45 var(--serif);
+}
+
+.hero-card strong {
+  display: block;
+  margin: 8px 0 22px;
+  font: 700 29px/1.17 var(--serif);
+}
+
+.hero-card small {
+  color: rgba(255, 255, 255, 0.53);
+  line-height: 1.45;
+}
+
+.card-rule {
+  width: 70px;
+  height: 2px;
+  margin-bottom: 22px;
+  background: var(--red);
+}
+
+.trust-strip {
+  max-width: 1240px;
+  margin: clamp(55px, 8vw, 100px) auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 32px;
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+.narrow-panel {
+  width: min(760px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(42px, 7vw, 90px) 0 100px;
+}
+
+.narrow-panel > p:not(.eyebrow, .form-hint, .action-status) {
+  color: var(--ink-soft);
+  font: 400 18px/1.55 var(--serif);
+}
+
+.dimension-list {
+  margin: 34px 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dimension-method {
+  padding: 18px;
+  background: rgba(255, 253, 248, 0.64);
+  border: 1px solid var(--line);
+}
+
+.dimension-method strong {
+  display: block;
+  margin-bottom: 5px;
+  font: 700 17px/1.2 var(--serif);
+}
+
+.dimension-method span {
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.callout {
+  margin: 34px 0;
+  padding: 24px;
+  border-left: 4px solid var(--red);
+  background: var(--paper-deep);
+}
+
+.callout strong {
+  font-family: var(--serif);
+}
+
+.callout p {
+  margin: 7px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.rules-list {
+  margin: 28px 0 34px;
+  padding: 0;
+  list-style: none;
+  counter-reset: rule;
+}
+
+.rules-list li {
+  counter-increment: rule;
+  position: relative;
+  padding: 18px 0 18px 54px;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.55;
+}
+
+.rules-list li::before {
+  content: "0" counter(rule);
+  position: absolute;
+  left: 0;
+  top: 18px;
+  color: var(--red);
+  font: 700 15px/1 var(--serif);
+}
+
+.consent-row {
+  margin: 26px 0 5px;
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  line-height: 1.45;
+}
+
+.consent-row input {
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  accent-color: var(--red);
+}
+
+.form-hint,
+.action-status {
+  min-height: 22px;
+  margin: 7px 0 12px;
+  color: var(--red-dark);
+  font-size: 12px;
+}
+
+.test-shell,
+.result-shell {
+  width: min(980px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 58px) 0 90px;
+}
+
+.test-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.progress-copy {
+  display: flex;
+  gap: 18px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.progress-track {
+  height: 3px;
+  margin: 12px 0 clamp(34px, 5vw, 62px);
+  background: rgba(19, 32, 51, 0.11);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 8.33%;
+  background: var(--red);
+  transition: width 280ms ease;
+}
+
+.question-card {
+  padding: clamp(26px, 6vw, 62px);
+  background: var(--white);
+  border: 1px solid rgba(19, 32, 51, 0.1);
+  box-shadow: var(--shadow);
+}
+
+.question-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 24px;
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.question-card h2 {
+  max-width: 790px;
+  margin-bottom: 19px;
+  font-size: clamp(32px, 4vw, 49px);
+}
+
+.question-card > p {
+  max-width: 800px;
+  color: var(--ink-soft);
+  font: 400 18px/1.55 var(--serif);
+}
+
+.question-prompt {
+  margin: 24px 0 14px !important;
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+
+.answers {
+  display: grid;
+  gap: 11px;
+}
+
+.answer-option {
+  width: 100%;
+  min-height: 68px;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 15px 18px;
+  text-align: left;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  line-height: 1.42;
+}
+
+.answer-option:hover {
+  border-color: rgba(19, 32, 51, 0.34);
+}
+
+.answer-option.is-selected {
+  border-color: var(--navy);
+  background: #e8edf1;
+}
+
+.answer-letter {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font: 700 13px/1 var(--serif);
+}
+
+.answer-option.is-selected .answer-letter {
+  color: white;
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.test-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.result-heading {
+  max-width: 730px;
+  margin-bottom: 38px;
+}
+
+.result-heading p:last-child {
+  color: var(--ink-soft);
+  font: 400 18px/1.5 var(--serif);
+}
+
+.result-hero {
+  display: grid;
+  grid-template-columns: 0.45fr 1fr;
+  background: var(--navy);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.result-code-block,
+.result-summary {
+  padding: clamp(26px, 5vw, 48px);
+}
+
+.result-code-block {
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.result-code-block span,
+.result-summary span,
+.reflection-grid article > span {
+  display: block;
+  margin-bottom: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.result-code-block strong {
+  display: block;
+  margin-bottom: 10px;
+  font: 700 26px/1 var(--serif);
+  letter-spacing: 0.08em;
+}
+
+.result-code-block small {
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.4;
+}
+
+.result-summary h3 {
+  margin-bottom: 10px;
+  font-size: clamp(27px, 4vw, 40px);
+}
+
+.result-summary p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.5;
+}
+
+.profile-grid {
+  margin: 24px 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.profile-item {
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.58);
+}
+
+.profile-item-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 11px;
+}
+
+.profile-item strong {
+  font: 700 17px/1.2 var(--serif);
+}
+
+.profile-item span {
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+.profile-bar {
+  height: 5px;
+  background: rgba(19, 32, 51, 0.11);
+}
+
+.profile-bar div {
+  height: 100%;
+  background: var(--blue);
+}
+
+.profile-item p {
+  margin: 11px 0 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.reflection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.reflection-grid article {
+  padding: clamp(25px, 4vw, 38px);
+  background: var(--navy-2);
+  color: white;
+}
+
+.reflection-grid article > span {
+  color: rgba(255, 255, 255, 0.49);
+}
+
+.reflection-grid article p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.5;
+}
+
+.reflection-grid .risk-card {
+  background: var(--red-dark);
+}
+
+.result-note {
+  margin: 26px 0;
+  padding: 24px;
+  border: 1px solid var(--line);
+}
+
+.result-note strong {
+  font-family: var(--serif);
+}
+
+.result-note p {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.feedback-panel textarea,
+.feedback-panel select {
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 13px 14px;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.feedback-panel textarea:focus,
+.feedback-panel select:focus {
+  outline: 2px solid rgba(49, 94, 140, 0.24);
+  border-color: var(--blue);
+}
+
+.field-label,
+.rating-field legend {
+  display: block;
+  margin-bottom: 9px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.rating-field {
+  padding: 0;
+  margin: 25px 0;
+  border: 0;
+}
+
+.rating-row {
+  display: flex;
+  gap: 8px;
+}
+
+.rating-button {
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  background: var(--white);
+}
+
+.rating-button.is-selected {
+  color: white;
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+dialog {
+  width: min(520px, calc(100% - 30px));
+  border: 0;
+  padding: 0;
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.28);
+}
+
+dialog::backdrop {
+  background: rgba(10, 19, 30, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.dialog-content {
+  padding: 34px;
+}
+
+.dialog-content h2 {
+  font-size: 34px;
+}
+
+.dialog-content > p:not(.eyebrow) {
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+footer {
+  padding: 24px clamp(20px, 5vw, 72px);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 10px;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(182, 58, 50, 0.35);
+  outline-offset: 3px;
+}
+
+@media (max-width: 800px) {
+  .hero-grid,
+  .result-hero,
+  .profile-grid,
+  .reflection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 52px;
+  }
+
+  .hero-card {
+    min-height: 380px;
+  }
+
+  .result-code-block {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .dimension-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    min-height: 66px;
+    padding: 10px 16px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-copy small {
+    display: none;
+  }
+
+  .stage-chip {
+    max-width: 150px;
+    text-align: center;
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 64px;
+  }
+
+  h2 {
+    font-size: 35px;
+  }
+
+  .hero-facts {
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .hero-card {
+    min-height: 340px;
+  }
+
+  .trust-strip {
+    display: grid;
+  }
+
+  .question-card {
+    padding: 24px 18px;
+  }
+
+  .question-card h2 {
+    font-size: 31px;
+  }
+
+  .question-card > p {
+    font-size: 16px;
+  }
+
+  .answer-option {
+    min-height: 74px;
+    padding: 13px;
+    grid-template-columns: 30px 1fr;
+    font-size: 14px;
+  }
+
+  .test-actions {
+    display: grid;
+    grid-template-columns: 0.75fr 1.4fr;
+  }
+
+  .test-actions .primary-button,
+  .test-actions .secondary-button {
+    padding-inline: 10px;
+    font-size: 13px;
+  }
+
+  .result-actions,
+  .dialog-actions {
+    display: grid;
+  }
+
+  .result-actions button {
+    width: 100%;
+  }
+
+  footer {
+    display: grid;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.learning-card {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(193, 143, 67, 0.38);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(193, 143, 67, 0.12), rgba(31, 84, 87, 0.08)),
+    rgba(255, 255, 255, 0.72);
+}
+
+.learning-card[hidden] {
+  display: none;
+}
+
+.learning-card span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.learning-card p {
+  margin: 0 0 0.45rem;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.learning-card small {
+  display: block;
+  color: var(--muted);
+  line-height: 1.5;
+}
+</style>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#start" aria-label="ЛИДЕР — на главную">
+        <span class="brand-mark" aria-hidden="true">Л</span>
+        <span class="brand-copy">
+          <strong>ЛИДЕР</strong>
+          <small>Школа гражданской зрелости</small>
+        </span>
+      </a>
+      <div class="stage-chip">Пилот · Ступень 1 из 12</div>
+    </header>
+
+    <main>
+      <section class="screen hero is-active" id="start" data-screen="start">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Бесплатная образовательная ступень</p>
+            <h1>Власть начинается с себя</h1>
+            <p class="hero-lead">
+              Прежде чем управлять другими, стоит заметить собственные реакции:
+              что происходит с правдой, справедливостью и самообладанием, когда
+              тебе неудобно, обидно или выгодно поступить иначе?
+            </p>
+
+            <div class="hero-facts" aria-label="Параметры ступени">
+              <div>
+                <strong>36</strong>
+                <span>ситуаций в банке</span>
+              </div>
+              <div>
+                <strong>12</strong>
+                <span>в твоём маршруте</span>
+              </div>
+              <div>
+                <strong>4–6</strong>
+                <span>минут</span>
+              </div>
+            </div>
+
+            <button class="primary-button" id="beginButton" type="button">
+              Начать игру
+              <span aria-hidden="true">→</span>
+            </button>
+            <button class="text-button" id="methodButton" type="button">
+              Как это устроено
+            </button>
+          </div>
+
+          <aside class="hero-card" aria-label="Главный вопрос ступени">
+            <span class="card-index">01</span>
+            <p>
+              Никто не видит твоего выбора. Можно получить небольшую выгоду, и
+              почти наверняка об этом никто не узнает.
+            </p>
+            <strong>Изменится ли твоё правило?</strong>
+            <div class="card-rule" aria-hidden="true"></div>
+            <small>
+              Здесь нет оценки человеческой ценности. Мы наблюдаем привычные
+              способы принимать решения.
+            </small>
+          </aside>
+        </div>
+
+        <div class="trust-strip">
+          <span>18+</span>
+          <span>Без регистрации</span>
+          <span>Каждому участнику собирается свой маршрут</span>
+          <span>Ответы остаются на устройстве</span>
+        </div>
+      </section>
+
+      <section class="screen method-screen" id="method" data-screen="method">
+        <div class="narrow-panel">
+          <button class="back-button" type="button" data-go="start">
+            ← Назад
+          </button>
+          <p class="eyebrow">Не экзамен, а тренировка внимания</p>
+          <h2>Выбор, последствие, короткий урок</h2>
+          <p>
+            После каждого ответа появится небольшое объяснение. Оно не объявляет
+            тебя хорошим или плохим, а показывает цену выбранного способа
+            действия.
+          </p>
+          <div class="dimension-list" id="methodDimensions"></div>
+          <div class="callout">
+            <strong>Почему вопросы различаются</strong>
+            <p>
+              В банке 36 ситуаций. В каждое прохождение случайно выбираются по
+              две ситуации из шести областей, а варианты ответов перемешиваются.
+              Заучить один маршрут не получится.
+            </p>
+          </div>
+          <button class="primary-button" type="button" data-go="intro">
+            Понятно. Продолжить
+          </button>
+        </div>
+      </section>
+
+      <section class="screen intro-screen" id="intro" data-screen="intro">
+        <div class="narrow-panel">
+          <button class="back-button" type="button" data-go="start">
+            ← Назад
+          </button>
+          <p class="eyebrow">Перед началом</p>
+          <h2>Выбирай то, что сделал бы первым</h2>
+          <ol class="rules-list">
+            <li>Не ищи самую красивую фразу — отмечай привычную реакцию.</li>
+            <li>У каждого ответа есть последствия, даже если он понятен.</li>
+            <li>Короткий маршрут не является диагнозом или нравственным приговором.</li>
+          </ol>
+          <label class="consent-row">
+            <input type="checkbox" id="ageConsent" />
+            <span>
+              Мне исполнилось 18 лет. Я понимаю образовательный и пилотный
+              характер ступени.
+            </span>
+          </label>
+          <p class="form-hint" id="consentHint" role="status"></p>
+          <button class="primary-button" id="startTestButton" type="button">
+            Я готов
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="screen test-screen" id="test" data-screen="test">
+        <div class="test-shell">
+          <div class="test-topline">
+            <button class="exit-button" id="exitTestButton" type="button">
+              Выйти
+            </button>
+            <div class="progress-copy">
+              <span id="progressLabel">Ситуация 1 из 12</span>
+              <span id="progressPercent">8%</span>
+            </div>
+          </div>
+          <div
+            class="progress-track"
+            role="progressbar"
+            aria-valuemin="1"
+            aria-valuemax="12"
+            aria-valuenow="1"
+            aria-label="Прогресс ступени"
+          >
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+
+          <article class="question-card" aria-live="polite">
+            <div class="question-meta">
+              <span id="questionTheme"></span>
+              <span>Обычная жизнь</span>
+            </div>
+            <h2 id="questionTitle"></h2>
+            <p id="questionText"></p>
+            <p class="question-prompt" id="questionPrompt"></p>
+            <div class="answers" id="answers"></div>
+            <div class="learning-card" id="learningCard" hidden>
+              <span>Наблюдение</span>
+              <p id="choiceInsight"></p>
+              <small id="principleInsight"></small>
+            </div>
+          </article>
+
+          <div class="test-actions">
+            <button class="secondary-button" id="previousButton" type="button">
+              ← Назад
+            </button>
+            <button class="primary-button" id="nextButton" type="button" disabled>
+              Следующая ситуация →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen result-screen" id="result" data-screen="result">
+        <div class="result-shell">
+          <div class="result-heading">
+            <p class="eyebrow">Ступень 1 завершена</p>
+            <h2>Твоя первая карта управления собой</h2>
+            <p>
+              Она показывает реакции в двенадцати случайных ситуациях. Это
+              начало наблюдения, а не окончательный вывод о личности.
+            </p>
+          </div>
+
+          <div class="result-hero">
+            <div class="result-code-block">
+              <span>Код прохождения</span>
+              <strong id="resultCode">—</strong>
+              <small>Код не содержит имени и контактных данных.</small>
+            </div>
+            <div class="result-summary">
+              <span>Наиболее заметная опора</span>
+              <h3 id="leadingTitle"></h3>
+              <p id="leadingText"></p>
+            </div>
+          </div>
+
+          <div class="profile-grid" id="profileGrid"></div>
+
+          <div class="reflection-grid">
+            <article>
+              <span>Что уже помогает</span>
+              <h3 id="strengthTitle"></h3>
+              <p id="strengthText"></p>
+            </article>
+            <article class="risk-card">
+              <span>Практика наблюдения</span>
+              <h3 id="practiceTitle"></h3>
+              <p id="practiceText"></p>
+            </article>
+          </div>
+
+          <div class="result-note">
+            <strong>Главная мысль ступени</strong>
+            <p>
+              Лидерство начинается не с права распоряжаться другими, а со
+              способности замечать собственную ложь, гнев, жадность, страх и
+              желание быть правым.
+            </p>
+          </div>
+
+          <div class="result-actions">
+            <button class="primary-button" id="feedbackButton" type="button">
+              Помочь улучшить пилот
+            </button>
+            <button class="secondary-button" id="newRouteButton" type="button">
+              Получить другой маршрут
+            </button>
+            <button class="text-button" id="shareButton" type="button">
+              Поделиться результатом
+            </button>
+          </div>
+          <p class="action-status" id="shareStatus" role="status"></p>
+        </div>
+      </section>
+
+      <section class="screen feedback-screen" id="feedback" data-screen="feedback">
+        <div class="narrow-panel feedback-panel">
+          <button class="back-button" type="button" data-go="result">
+            ← К результату
+          </button>
+          <p class="eyebrow">Обратная связь</p>
+          <h2>Помоги сделать первую ступень живой и понятной</h2>
+
+          <fieldset class="rating-field">
+            <legend>Насколько понятными были ситуации?</legend>
+            <div class="rating-row" id="clarityRating"></div>
+          </fieldset>
+
+          <fieldset class="rating-field">
+            <legend>Было ли интересно продолжать?</legend>
+            <div class="rating-row" id="interestRating"></div>
+          </fieldset>
+
+          <label class="field-label" for="learnedChoice">
+            Узнал(а) ли ты что-то полезное?
+          </label>
+          <select id="learnedChoice">
+            <option value="">Выбери ответ</option>
+            <option value="yes">Да</option>
+            <option value="maybe">Возможно</option>
+            <option value="no">Нет</option>
+          </select>
+
+          <label class="field-label" for="continueChoice">
+            Хотелось бы перейти ко второй ступени?
+          </label>
+          <select id="continueChoice">
+            <option value="">Выбери ответ</option>
+            <option value="yes">Да</option>
+            <option value="maybe">Возможно</option>
+            <option value="no">Нет</option>
+          </select>
+
+          <label class="field-label" for="generalFeedback">
+            Что было слишком очевидным, непонятным или поучительным?
+          </label>
+          <textarea
+            id="generalFeedback"
+            rows="4"
+            maxlength="800"
+            placeholder="Любая честная критика полезна"
+          ></textarea>
+
+          <button class="primary-button" id="copyPilotReport" type="button">
+            Скопировать отчёт для пилота
+          </button>
+          <p class="action-status" id="feedbackStatus" role="status"></p>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="exitDialog">
+      <div class="dialog-content">
+        <p class="eyebrow">Прервать прохождение?</p>
+        <h2>Маршрут сохранён на этом устройстве</h2>
+        <p>Ты сможешь продолжить с той же ситуации позже.</p>
+        <div class="dialog-actions">
+          <button class="primary-button" id="continueDialogButton" type="button">
+            Продолжить
+          </button>
+          <button class="secondary-button" id="leaveDialogButton" type="button">
+            Выйти на главную
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <footer>
+      <span>Проект «ЛИДЕР» · Ступень 1 · Пилот 0.1</span>
+      <span>Человек не принадлежит системе. Система существует для человека.</span>
+    </footer>
+
+    <script>const DIMENSIONS = {
+  care: {
+    title: "Бережность",
+    description: "Не превращать раздражение и силу в лишний вред.",
+    strong:
+      "Ты чаще отделяешь защиту границ от желания унизить или причинить боль.",
+    practice:
+      "Перед резким действием спроси: я сейчас решаю проблему или передаю дальше собственную боль?",
+    feedback: {
+      3: "В выборе заметно стремление решить проблему, не умножая лишний вред.",
+      1: "Ты уменьшаешь открытый конфликт, но часть проблемы может остаться без честного решения.",
+      0: "Быстрая разрядка понятна, но её цена часто переносится на другого человека.",
+    },
+  },
+  truth: {
+    title: "Честность",
+    description: "Не подменять действительность удобной версией.",
+    strong:
+      "Ты чаще выбираешь ясность даже тогда, когда правда делает положение менее удобным.",
+    practice:
+      "Замечай момент, когда объяснение превращается в оправдание, а молчание — в способ сохранить ложное впечатление.",
+    feedback: {
+      3: "Ты сохраняешь связь между словами, фактами и собственной ответственностью.",
+      1: "Часть правды сохраняется, но у окружающих может остаться неточная картина.",
+      0: "Удобная версия защищает в моменте, но делает доверие зависимым от сокрытия.",
+    },
+  },
+  fairness: {
+    title: "Справедливость",
+    description: "Не присваивать чужое — вещи, время, заслуги и возможности.",
+    strong:
+      "Ты чаще замечаешь невидимую границу между доступным и действительно принадлежащим тебе.",
+    practice:
+      "Когда выгода кажется ничьей, спроси: чей труд, время или право сделали её возможной?",
+    feedback: {
+      3: "Выбор учитывает не только возможность получить выгоду, но и право другого человека.",
+      1: "Ты видишь часть границы, однако удобство всё ещё может незаметно сдвигать её.",
+      0: "Доступность принимается за право, а скрытая цена остаётся другому человеку или всем.",
+    },
+  },
+  restraint: {
+    title: "Самообладание",
+    description: "Создавать паузу между импульсом и действием.",
+    strong:
+      "Ты чаще способен выдержать первый импульс и вернуть себе свободу выбора.",
+    practice:
+      "Попробуй правило одной паузы: не запрещать чувство, а отложить необратимое действие.",
+    feedback: {
+      3: "Ты создаёшь паузу, в которой реакция снова становится осознанным выбором.",
+      1: "Импульс частично ограничен, но всё ещё заметно управляет следующим шагом.",
+      0: "Немедленное облегчение получает приоритет над последствиями после него.",
+    },
+  },
+  freedom: {
+    title: "Свобода от обладания",
+    description: "Не становиться заложником статуса, выгоды и собственного решения.",
+    strong:
+      "Ты чаще способен отпустить символ победы, если он начинает управлять твоими поступками.",
+    practice:
+      "Спроси себя: я защищаю полезное дело или образ себя, который привык считать своим?",
+    feedback: {
+      3: "Ты сохраняешь способность отказаться от обладания, если оно начинает владеть тобой.",
+      1: "Привязанность замечена, но продолжает влиять на решение скрытым способом.",
+      0: "Статус, вещь или прежнее решение становятся важнее свободы пересмотреть шаг.",
+    },
+  },
+  reflection: {
+    title: "Самонаблюдение",
+    description: "Замечать собственную роль, ограничения и повторяющиеся реакции.",
+    strong:
+      "Ты чаще рассматриваешь себя не только как судью ситуации, но и как одного из её участников.",
+    practice:
+      "В повторяющейся проблеме ищи не только виновника, но и собственный неизменный способ отвечать.",
+    feedback: {
+      3: "Ты оставляешь место для проверки себя и новой информации.",
+      1: "Сомнение возникает, но ещё не превращается в полноценную проверку своей позиции.",
+      0: "Защита привычного образа себя оказывается важнее возможности увидеть собственный вклад.",
+    },
+  },
+};
+
+const QUESTIONS = [
+  {
+    id: "care-angry-message",
+    dimension: "care",
+    theme: "Раздражение",
+    title: "Сообщение написано на эмоциях",
+    text:
+      "Тебя несправедливо обвинили в общем чате. Ты написал резкий ответ и уже держишь палец над кнопкой отправки.",
+    prompt: "Что сделаешь первым?",
+    principle:
+      "Бережность не запрещает защищать себя. Она отделяет ясную границу от желания ранить в ответ.",
+    options: [
+      { id: "a", text: "Отправлю сразу: человек должен почувствовать последствия.", score: 0 },
+      { id: "b", text: "Сохраню черновик и вернусь к фактам после короткой паузы.", score: 3 },
+      { id: "c", text: "Удалю сообщение и больше никогда не стану это обсуждать.", score: 1 },
+    ],
+  },
+  {
+    id: "care-cashier",
+    dimension: "care",
+    theme: "Ошибка другого",
+    title: "Кассир задержал очередь",
+    text:
+      "Кассир несколько раз ошибся, и ты потерял время. За спиной ждут люди, сотрудник заметно волнуется.",
+    prompt: "Как обозначишь проблему?",
+    principle:
+      "Исправление ошибки и унижение человека — разные действия, даже если происходят одновременно.",
+    options: [
+      { id: "a", text: "Потребую руководителя при всех: иначе он не научится.", score: 0 },
+      { id: "b", text: "Молча уйду, но поставлю минимальную оценку позже.", score: 1 },
+      { id: "c", text: "Спокойно назову ошибку и попрошу способ быстро её исправить.", score: 3 },
+    ],
+  },
+  {
+    id: "care-gossip",
+    dimension: "care",
+    theme: "Группа",
+    title: "Шутка над отсутствующим человеком",
+    text:
+      "В компании начинают высмеивать человека, которого сейчас нет рядом. Тебе не хочется портить настроение остальным.",
+    prompt: "Как поступишь?",
+    principle:
+      "Ненанесение вреда особенно проверяется там, где пострадавший не может защитить себя.",
+    options: [
+      { id: "a", text: "Поддержу смех: это всего лишь дружеская атмосфера.", score: 0 },
+      { id: "b", text: "Не буду смеяться, но вмешиваться тоже не стану.", score: 1 },
+      { id: "c", text: "Остановлю обсуждение или верну разговор к проверяемым фактам.", score: 3 },
+    ],
+  },
+  {
+    id: "care-road",
+    dimension: "care",
+    theme: "Импульс",
+    title: "Тебя резко подрезали",
+    text:
+      "Другой водитель создал опасную ситуацию и уехал вперёд. Ты успел затормозить, но сильно разозлился.",
+    prompt: "Какой будет следующая реакция?",
+    principle:
+      "Чужая опасная ошибка не делает безопасной твою попытку немедленно восстановить справедливость.",
+    options: [
+      { id: "a", text: "Догоню и покажу ему, насколько это было опасно.", score: 0 },
+      { id: "b", text: "Посигналю вслед и ещё немного выскажу всё вслух.", score: 1 },
+      { id: "c", text: "Увеличу дистанцию и сначала восстановлю внимание.", score: 3 },
+    ],
+  },
+  {
+    id: "care-newcomer",
+    dimension: "care",
+    theme: "Обучение",
+    title: "Новичок испортил часть работы",
+    text:
+      "Ошибка нового сотрудника добавила тебе лишний час работы. Он ещё не понимает, насколько серьёзны последствия.",
+    prompt: "Что сделаешь?",
+    principle:
+      "Бережность не отменяет требований. Она помогает исправлять поведение, не разрушая человека.",
+    options: [
+      { id: "a", text: "Исправлю сам: объяснять дольше и неприятнее.", score: 1 },
+      { id: "b", text: "При всех покажу ошибку, чтобы остальные не повторяли.", score: 0 },
+      { id: "c", text: "Объясню последствия и вместе разберу способ исправления.", score: 3 },
+    ],
+  },
+  {
+    id: "care-raised-voice",
+    dimension: "care",
+    theme: "Близкие",
+    title: "Разговор перешёл на крик",
+    text:
+      "Близкий человек повышает голос и говорит несправедливые вещи. Продолжать спокойно становится трудно.",
+    prompt: "Как остановишь ситуацию?",
+    principle:
+      "Пауза может быть формой заботы, если она обозначена и не превращается в наказание молчанием.",
+    options: [
+      { id: "a", text: "Отвечу громче, чтобы наконец быть услышанным.", score: 0 },
+      { id: "b", text: "Замолчу на несколько дней — пусть сам всё поймёт.", score: 1 },
+      { id: "c", text: "Обозначу границу, возьму паузу и назову время возврата к разговору.", score: 3 },
+    ],
+  },
+  {
+    id: "truth-late",
+    dimension: "truth",
+    theme: "Ответственность",
+    title: "Ты опоздал по своей вине",
+    text:
+      "Можно сослаться на пробку, хотя настоящая причина — ты поздно вышел. Проверять объяснение никто не будет.",
+    prompt: "Что скажешь ожидавшему человеку?",
+    principle:
+      "Честность начинается там, где правдоподобная причина могла бы сохранить удобный образ тебя.",
+    options: [
+      { id: "a", text: "Сошлюсь на дорогу: опоздание от этого не изменится.", score: 0 },
+      { id: "b", text: "Скажу, что неверно рассчитал время, и обозначу новый срок.", score: 3 },
+      { id: "c", text: "Извинюсь без объяснения причины.", score: 1 },
+    ],
+  },
+  {
+    id: "truth-extra-change",
+    dimension: "truth",
+    theme: "Незаметная выгода",
+    title: "Тебе вернули лишние деньги",
+    text:
+      "После покупки ты заметил, что получил больше сдачи. Сумма небольшая, кассир ошибки не увидел.",
+    prompt: "Что сделаешь?",
+    principle:
+      "Незаметность поступка не меняет факта, на котором строится полученная выгода.",
+    options: [
+      { id: "a", text: "Верну лишнее и укажу на ошибку.", score: 3 },
+      { id: "b", text: "Оставлю: крупный магазин переживёт такую потерю.", score: 0 },
+      { id: "c", text: "Подожду: если меня окликнут, тогда верну.", score: 1 },
+    ],
+  },
+  {
+    id: "truth-promise",
+    dimension: "truth",
+    theme: "Обещание",
+    title: "Обещание стало неудобным",
+    text:
+      "Ты обещал помочь, но теперь понимаешь, что не успеваешь. Человек пока рассчитывает на тебя.",
+    prompt: "Как поступишь?",
+    principle:
+      "Правда полезнее всего до того, как другой человек построил на неверном ожидании свои действия.",
+    options: [
+      { id: "a", text: "Сообщу заранее и предложу реальную альтернативу.", score: 3 },
+      { id: "b", text: "Потяну время: возможно, всё как-нибудь сложится.", score: 1 },
+      { id: "c", text: "Перестану отвечать, чтобы избежать неприятного разговора.", score: 0 },
+    ],
+  },
+  {
+    id: "truth-team-credit",
+    dimension: "truth",
+    theme: "Признание",
+    title: "Тебя похвалили за работу команды",
+    text:
+      "Руководитель думает, что успешное решение принадлежит тебе. Коллеги, которые помогали, сейчас не присутствуют.",
+    prompt: "Как ответишь?",
+    principle:
+      "Молчание тоже может создавать ложное представление, если человек понимает, что ему приписывают чужой вклад.",
+    options: [
+      { id: "a", text: "Приму похвалу: позже можно будет поблагодарить команду.", score: 1 },
+      { id: "b", text: "Сразу уточню, кто и какой вклад внёс.", score: 3 },
+      { id: "c", text: "Ничего не скажу: руководитель сам сделал вывод.", score: 0 },
+    ],
+  },
+  {
+    id: "truth-friend-idea",
+    dimension: "truth",
+    theme: "Обратная связь",
+    title: "Друг просит оценить слабую идею",
+    text:
+      "Он воодушевлён и ждёт поддержки. Ты видишь серьёзный недостаток, который может привести к потерям.",
+    prompt: "Как дашь ответ?",
+    principle:
+      "Честность без заботы превращается в удар, а забота без честности — в отсроченный ущерб.",
+    options: [
+      { id: "a", text: "Поддержу без оговорок: сейчас ему важна уверенность.", score: 0 },
+      { id: "b", text: "Скажу резко, чтобы он быстрее отказался от ошибки.", score: 1 },
+      { id: "c", text: "Назову сильную часть и конкретно объясню главный риск.", score: 3 },
+    ],
+  },
+  {
+    id: "truth-hidden-error",
+    dimension: "truth",
+    theme: "Ошибка",
+    title: "Ошибку ещё никто не заметил",
+    text:
+      "Ты допустил ошибку, но успеваешь исправить её до проверки. Последствия уже могли затронуть других.",
+    prompt: "Что сделаешь?",
+    principle:
+      "Исправление результата не всегда исправляет ложную картину причин и рисков.",
+    options: [
+      { id: "a", text: "Исправлю молча: главное — итоговое качество.", score: 1 },
+      { id: "b", text: "Сообщу об ошибке, проверю последствия и исправлю процесс.", score: 3 },
+      { id: "c", text: "Подожду: возможно, вмешательство только привлечёт внимание.", score: 0 },
+    ],
+  },
+  {
+    id: "fairness-colleague-idea",
+    dimension: "fairness",
+    theme: "Чужой вклад",
+    title: "Полезная мысль прозвучала в личном разговоре",
+    text:
+      "Коллега подсказал решение, а на совещании вопрос задали тебе. Коллеги рядом нет.",
+    prompt: "Как представишь идею?",
+    principle:
+      "Заслуга — тоже форма собственности: её нельзя считать ничьей только потому, что она не оформлена документом.",
+    options: [
+      { id: "a", text: "Предложу решение без имени: идеи принадлежат общему делу.", score: 1 },
+      { id: "b", text: "Назову коллегу и затем объясню решение.", score: 3 },
+      { id: "c", text: "Представлю как свою находку: реализовывать всё равно мне.", score: 0 },
+    ],
+  },
+  {
+    id: "fairness-work-time",
+    dimension: "fairness",
+    theme: "Время",
+    title: "Личное дело в рабочее время",
+    text:
+      "Тебе нужно решить личный вопрос. Это займёт около часа, а прямого контроля сегодня нет.",
+    prompt: "Как поступишь?",
+    principle:
+      "Чужим может быть не только предмет, но и оплаченное время, которым человек распоряжается без согласования.",
+    options: [
+      { id: "a", text: "Решу вопрос: я часто делаю для работы больше нормы.", score: 1 },
+      { id: "b", text: "Согласую отсутствие или честно компенсирую время.", score: 3 },
+      { id: "c", text: "Никому не скажу: результат работы ведь не пострадает.", score: 0 },
+    ],
+  },
+  {
+    id: "fairness-shared-supply",
+    dimension: "fairness",
+    theme: "Общий ресурс",
+    title: "Остался последний общий запас",
+    text:
+      "В офисе закончился нужный расходный материал. Последней упаковки тебе хватит, но следующей смене ничего не останется.",
+    prompt: "Что сделаешь?",
+    principle:
+      "Общее не означает ничьё: справедливость учитывает людей, которые придут после тебя.",
+    options: [
+      { id: "a", text: "Заберу всё: моя задача уже стоит первой.", score: 0 },
+      { id: "b", text: "Возьму необходимое и сразу сообщу, что запас нужно пополнить.", score: 3 },
+      { id: "c", text: "Оставлю всё следующей смене и остановлю свою работу.", score: 1 },
+    ],
+  },
+  {
+    id: "fairness-double-refund",
+    dimension: "fairness",
+    theme: "Деньги",
+    title: "Расход возместили дважды",
+    text:
+      "Из-за ошибки системы одна и та же рабочая трата вернулась тебе два раза. В отчёте это почти незаметно.",
+    prompt: "Что сделаешь с лишней суммой?",
+    principle:
+      "Даже полезное использование чужих денег не превращает их в принадлежащие тебе.",
+    options: [
+      { id: "a", text: "Сообщу об ошибке и верну или зачту сумму.", score: 3 },
+      { id: "b", text: "Оставлю: организация сама отвечает за свою систему.", score: 0 },
+      { id: "c", text: "Передам деньги на хорошее дело, не поднимая вопрос.", score: 1 },
+    ],
+  },
+  {
+    id: "fairness-queue",
+    dimension: "fairness",
+    theme: "Привилегия",
+    title: "Знакомый предлагает провести без очереди",
+    text:
+      "Ты спешишь, а знакомый сотрудник может решить вопрос сразу. Остальные люди ждут по общему правилу.",
+    prompt: "Как поступишь?",
+    principle:
+      "Маленькая личная привилегия становится системой неравенства, когда каждый считает свой случай особенным.",
+    options: [
+      { id: "a", text: "Откажусь и останусь в общей очереди.", score: 3 },
+      { id: "b", text: "Соглашусь: сегодня у меня действительно важная причина.", score: 0 },
+      { id: "c", text: "Спрошу у ожидающих, не возражают ли они.", score: 1 },
+    ],
+  },
+  {
+    id: "fairness-paid-access",
+    dimension: "fairness",
+    theme: "Цифровая среда",
+    title: "Тебе дали чужой платный доступ",
+    text:
+      "Знакомый прислал пароль от полезного платного сервиса. Компания большая, а твой единичный вход никто не заметит.",
+    prompt: "Как поступишь?",
+    principle:
+      "Цифровой объект остаётся результатом чужого труда, даже если копирование почти ничего не стоит.",
+    options: [
+      { id: "a", text: "Воспользуюсь: от одного входа никто не потеряет.", score: 0 },
+      { id: "b", text: "Попробую один раз, а потом решу, стоит ли платить.", score: 1 },
+      { id: "c", text: "Проверю правила доступа и оформлю законный вариант.", score: 3 },
+    ],
+  },
+  {
+    id: "restraint-phone",
+    dimension: "restraint",
+    theme: "Внимание",
+    title: "Телефон отвлекает от важной задачи",
+    text:
+      "До окончания работы осталось сорок минут. Телефон постоянно подаёт сигналы, и тебе хочется проверить хотя бы один.",
+    prompt: "Как поступишь?",
+    principle:
+      "Самообладание — не отсутствие желания, а способность не отдавать ему управление автоматически.",
+    options: [
+      { id: "a", text: "Уберу телефон и назначу время для проверки после задачи.", score: 3 },
+      { id: "b", text: "Посмотрю одно уведомление, чтобы перестать отвлекаться.", score: 1 },
+      { id: "c", text: "Проверю всё сейчас: работать с любопытством всё равно трудно.", score: 0 },
+    ],
+  },
+  {
+    id: "restraint-purchase",
+    dimension: "restraint",
+    theme: "Желание",
+    title: "Очень хочется сделать дорогую покупку",
+    text:
+      "Покупка не была запланирована, но предложение ограничено по времени. Эмоции говорят, что такой шанс нельзя упускать.",
+    prompt: "Что сделаешь?",
+    principle:
+      "Ограниченность предложения часто создаёт срочность раньше, чем появляется реальная необходимость.",
+    options: [
+      { id: "a", text: "Куплю: иногда нужно разрешать себе радость.", score: 0 },
+      { id: "b", text: "Сравню цены и приму решение сегодня.", score: 1 },
+      { id: "c", text: "Запишу причины и вернусь к решению после паузы.", score: 3 },
+    ],
+  },
+  {
+    id: "restraint-secret",
+    dimension: "restraint",
+    theme: "Значимость",
+    title: "Ты знаешь важную закрытую информацию",
+    text:
+      "Если намекнуть на неё друзьям, ты будешь выглядеть человеком с серьёзными связями. Формального разрешения говорить нет.",
+    prompt: "Как поступишь?",
+    principle:
+      "Желание казаться значимым может заставить использовать доверенную информацию как личную валюту.",
+    options: [
+      { id: "a", text: "Расскажу одному надёжному человеку.", score: 0 },
+      { id: "b", text: "Намекну без деталей, чтобы ничего прямо не раскрывать.", score: 1 },
+      { id: "c", text: "Не стану использовать информацию для собственного образа.", score: 3 },
+    ],
+  },
+  {
+    id: "restraint-online",
+    dimension: "restraint",
+    theme: "Спор",
+    title: "Незнакомец провоцирует тебя в сети",
+    text:
+      "Комментарий искажает твои слова и написан вызывающе. Ты уже придумал ответ, который быстро поставит автора на место.",
+    prompt: "Как поступишь?",
+    principle:
+      "Не каждый вызов требует немедленного ответа; пауза возвращает право выбирать цель разговора.",
+    options: [
+      { id: "a", text: "Отвечу сейчас тем же тоном, но точнее.", score: 0 },
+      { id: "b", text: "Напишу черновик и решу позже, нужен ли ответ вообще.", score: 3 },
+      { id: "c", text: "Заблокирую автора и всех, кто с ним согласился.", score: 1 },
+    ],
+  },
+  {
+    id: "restraint-fatigue",
+    dimension: "restraint",
+    theme: "Усталость",
+    title: "Серьёзное решение поздно вечером",
+    text:
+      "Ты устал, но от тебя ждут окончательного ответа. Отложить можно, если прямо обозначить новый короткий срок.",
+    prompt: "Что сделаешь?",
+    principle:
+      "Признать временное снижение своей способности решать — форма ответственности, а не слабость.",
+    options: [
+      { id: "a", text: "Решу быстро: руководитель обязан выдерживать нагрузку.", score: 0 },
+      { id: "b", text: "Назову срок утром и отложу необратимый ответ.", score: 3 },
+      { id: "c", text: "Попрошу другого выбрать за меня.", score: 1 },
+    ],
+  },
+  {
+    id: "restraint-praise",
+    dimension: "restraint",
+    theme: "Похвала",
+    title: "Тебя публично назвали лучшим",
+    text:
+      "После успеха окружающие говорят, что без тебя ничего бы не получилось. Это приятно и похоже на правду.",
+    prompt: "Как отнесёшься к похвале?",
+    principle:
+      "Самообладание требуется не только при боли: восхищение тоже способно временно отключить проверку реальности.",
+    options: [
+      { id: "a", text: "Приму вывод: результат действительно всё показал.", score: 0 },
+      { id: "b", text: "Отвергну похвалу полностью — она только развращает.", score: 1 },
+      { id: "c", text: "Приму благодарность, но отделю свой вклад от вклада других.", score: 3 },
+    ],
+  },
+  {
+    id: "freedom-title",
+    dimension: "freedom",
+    theme: "Статус",
+    title: "У тебя забрали красивое название должности",
+    text:
+      "Содержание полезной работы почти не изменилось, но должность теперь звучит менее престижно. Доход сохранился.",
+    prompt: "Что будет главным в решении?",
+    principle:
+      "Статус полезен как инструмент, но становится хозяином, если без него исчезает смысл самой работы.",
+    options: [
+      { id: "a", text: "Сосредоточусь на реальных полномочиях и пользе работы.", score: 3 },
+      { id: "b", text: "Буду бороться за прежнее название как за вопрос уважения.", score: 0 },
+      { id: "c", text: "Останусь, но перестану проявлять инициативу.", score: 1 },
+    ],
+  },
+  {
+    id: "freedom-gift",
+    dimension: "freedom",
+    theme: "Выгода",
+    title: "Тебе предлагают дорогой подарок",
+    text:
+      "Даритель говорит, что ничего не просит, но в будущем твои решения могут затронуть его интересы.",
+    prompt: "Как поступишь?",
+    principle:
+      "Обязательство может появиться раньше просьбы: подарок способен незаметно изменить внутреннюю свободу решения.",
+    options: [
+      { id: "a", text: "Приму: отсутствие обещаний сохраняет мою независимость.", score: 0 },
+      { id: "b", text: "Приму и передам подарок другому человеку.", score: 1 },
+      { id: "c", text: "Откажусь или раскрою ситуацию по ясному правилу.", score: 3 },
+    ],
+  },
+  {
+    id: "freedom-sunk-cost",
+    dimension: "freedom",
+    theme: "Решение",
+    title: "На проект уже потрачено много сил",
+    text:
+      "Новые данные показывают, что первоначальная идея почти наверняка не сработает. Признание этого будет неприятным.",
+    prompt: "Что сделаешь?",
+    principle:
+      "Прошлые затраты нельзя вернуть продолжением ошибки; привязанность к ним может создавать новые потери.",
+    options: [
+      { id: "a", text: "Продолжу: столько вложенного нельзя перечеркнуть.", score: 0 },
+      { id: "b", text: "Переименую цель и постараюсь сохранить прежний план.", score: 1 },
+      { id: "c", text: "Перепроверю данные и остановлю то, что потеряло смысл.", score: 3 },
+    ],
+  },
+  {
+    id: "freedom-damaged-thing",
+    dimension: "freedom",
+    theme: "Вещи",
+    title: "Близкий человек повредил ценную вещь",
+    text:
+      "Вещь была тебе дорога. Повреждение произошло по неосторожности, восстановление возможно лишь частично.",
+    prompt: "Как отреагируешь?",
+    principle:
+      "Отпустить привязанность не означает притвориться безразличным; важно не сделать вещь важнее отношений и ответственности.",
+    options: [
+      { id: "a", text: "Потребую равноценную замену любой ценой.", score: 0 },
+      { id: "b", text: "Скажу, что всё нормально, хотя внутри буду помнить обиду.", score: 1 },
+      { id: "c", text: "Назову свою потерю и спокойно обсудим возможное исправление.", score: 3 },
+    ],
+  },
+  {
+    id: "freedom-recognition",
+    dimension: "freedom",
+    theme: "Признание",
+    title: "Успех проекта связали с другим человеком",
+    text:
+      "Твой вклад был большим, но публичное признание получил коллега. Сам проект оказался полезным и продолжает работать.",
+    prompt: "Что сделаешь?",
+    principle:
+      "Свобода от признания не требует стирать свой вклад, но не позволяет жажде славы разрушить полезный результат.",
+    options: [
+      { id: "a", text: "Спокойно уточню вклад и продолжу поддерживать полезный результат.", score: 3 },
+      { id: "b", text: "Перестану помогать: пусть теперь справляется тот, кого хвалят.", score: 1 },
+      { id: "c", text: "Расскажу всем, без кого проект на самом деле не состоялся.", score: 0 },
+    ],
+  },
+  {
+    id: "freedom-better-solution",
+    dimension: "freedom",
+    theme: "Авторство",
+    title: "Чужое решение оказалось лучше твоего",
+    text:
+      "Ты долго защищал свой вариант, но новая идея коллеги проще, дешевле и надёжнее.",
+    prompt: "Как поступишь?",
+    principle:
+      "Собственная идея полезна, пока служит задаче; после этого она легко превращается в продолжение самолюбия.",
+    options: [
+      { id: "a", text: "Приму новый вариант и прямо объясню, почему изменил позицию.", score: 3 },
+      { id: "b", text: "Продолжу защищать свой вариант: в нём есть недооценённые плюсы.", score: 0 },
+      { id: "c", text: "Соглашусь, но буду ждать первой ошибки нового решения.", score: 1 },
+    ],
+  },
+  {
+    id: "reflection-repeating-conflict",
+    dimension: "reflection",
+    theme: "Повторение",
+    title: "Один и тот же конфликт возникает с разными людьми",
+    text:
+      "Люди меняются, но разговор снова заканчивается похожей обидой и взаимными обвинениями.",
+    prompt: "С чего начнёшь разбор?",
+    principle:
+      "Повторяющийся результат при разных участниках — повод проверить собственный неизменный способ действовать.",
+    options: [
+      { id: "a", text: "Посмотрю, какую свою реакцию я повторяю каждый раз.", score: 3 },
+      { id: "b", text: "Признаю, что мне просто попадаются люди одного типа.", score: 0 },
+      { id: "c", text: "Стану меньше общаться, чтобы не повторять конфликт.", score: 1 },
+    ],
+  },
+  {
+    id: "reflection-hostile-feedback",
+    dimension: "reflection",
+    theme: "Критика",
+    title: "Тебя критикует неприятный человек",
+    text:
+      "Ты не доверяешь его мотивам, но часть замечания звучит конкретно и может быть проверена.",
+    prompt: "Как поступишь?",
+    principle:
+      "Плохой мотив говорящего не делает автоматически ложным каждый названный им факт.",
+    options: [
+      { id: "a", text: "Отброшу замечание: манипулятору нельзя давать влияние.", score: 0 },
+      { id: "b", text: "Отделю проверяемое содержание от отношения к автору.", score: 3 },
+      { id: "c", text: "Соглашусь внешне, чтобы быстрее закончить разговор.", score: 1 },
+    ],
+  },
+  {
+    id: "reflection-mood",
+    dimension: "reflection",
+    theme: "Состояние",
+    title: "Ты зол перед важным решением",
+    text:
+      "Решение касается человека, который только что тебя разозлил. Формально у тебя достаточно информации.",
+    prompt: "Что учтёшь первым?",
+    principle:
+      "Осознание эмоции не делает решение слабым; оно помогает не выдавать состояние за объективный факт.",
+    options: [
+      { id: "a", text: "Приму решение сразу: факты от настроения не меняются.", score: 0 },
+      { id: "b", text: "Назову своё состояние и проверю решение после короткой паузы.", score: 3 },
+      { id: "c", text: "Полностью передам решение другому человеку.", score: 1 },
+    ],
+  },
+  {
+    id: "reflection-unknown-topic",
+    dimension: "reflection",
+    theme: "Пределы знаний",
+    title: "От тебя ждут уверенного ответа",
+    text:
+      "Вопрос находится за пределами твоего опыта. Можно быстро собрать общее объяснение и сохранить впечатление компетентности.",
+    prompt: "Как ответишь?",
+    principle:
+      "Знание собственных границ — часть компетентности, если за признанием следует понятный способ получить данные.",
+    options: [
+      { id: "a", text: "Дам вероятный ответ: уверенность сейчас важнее деталей.", score: 0 },
+      { id: "b", text: "Признаю предел знания и скажу, как проверю вопрос.", score: 3 },
+      { id: "c", text: "Уйду от ответа, не раскрывая сомнения.", score: 1 },
+    ],
+  },
+  {
+    id: "reflection-failed-plan",
+    dimension: "reflection",
+    theme: "Неудача",
+    title: "План не дал ожидаемого результата",
+    text:
+      "Команда выполнила твои указания, но итог оказался слабым. Отдельные сотрудники действительно допускали ошибки.",
+    prompt: "С чего начнёшь?",
+    principle:
+      "Самонаблюдение не отменяет чужой ответственности, но сначала проверяет предпосылки и устройство собственного решения.",
+    options: [
+      { id: "a", text: "Найду, кто хуже остальных выполнил поручение.", score: 0 },
+      { id: "b", text: "Разберу свои предположения, процесс и ошибки исполнения.", score: 3 },
+      { id: "c", text: "Закрою тему: иногда планы просто не срабатывают.", score: 1 },
+    ],
+  },
+  {
+    id: "reflection-public-change",
+    dimension: "reflection",
+    theme: "Пересмотр",
+    title: "Новые факты опровергли твою публичную позицию",
+    text:
+      "Ты уже убеждал других в своём решении. Изменение позиции может выглядеть непоследовательностью.",
+    prompt: "Как поступишь?",
+    principle:
+      "Последовательность ценна, пока сохраняется связь с реальностью; иначе она становится верностью собственной ошибке.",
+    options: [
+      { id: "a", text: "Объясню новые данные и прямо изменю вывод.", score: 3 },
+      { id: "b", text: "Незаметно скорректирую действия без признания перемены.", score: 1 },
+      { id: "c", text: "Продолжу прежнюю линию, пока внимание не переключится.", score: 0 },
+    ],
+  },
+];
+
+const STORAGE_KEY = "leader-step-one-foundations-v01";
+const DIMENSION_KEYS = Object.keys(DIMENSIONS);
+const QUESTIONS_PER_DIMENSION = 2;
+const ROUTE_LENGTH = DIMENSION_KEYS.length * QUESTIONS_PER_DIMENSION;
+
+const screens = [...document.querySelectorAll("[data-screen]")];
+const beginButton = document.querySelector("#beginButton");
+const methodButton = document.querySelector("#methodButton");
+const ageConsent = document.querySelector("#ageConsent");
+const consentHint = document.querySelector("#consentHint");
+const startTestButton = document.querySelector("#startTestButton");
+const previousButton = document.querySelector("#previousButton");
+const nextButton = document.querySelector("#nextButton");
+const answersNode = document.querySelector("#answers");
+const learningCard = document.querySelector("#learningCard");
+const choiceInsight = document.querySelector("#choiceInsight");
+const principleInsight = document.querySelector("#principleInsight");
+const exitDialog = document.querySelector("#exitDialog");
+
+let state = loadState();
+
+function randomSeed() {
+  if (globalThis.crypto?.getRandomValues) {
+    return globalThis.crypto.getRandomValues(new Uint32Array(1))[0] || 1;
+  }
+  return (Date.now() ^ Math.floor(Math.random() * 0xffffffff)) >>> 0;
+}
+
+function mulberry32(seed) {
+  let value = seed >>> 0;
+  return () => {
+    value += 0x6d2b79f5;
+    let result = value;
+    result = Math.imul(result ^ (result >>> 15), result | 1);
+    result ^= result + Math.imul(result ^ (result >>> 7), result | 61);
+    return ((result ^ (result >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function hashText(text) {
+  let hash = 2166136261;
+  for (let index = 0; index < text.length; index += 1) {
+    hash ^= text.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function shuffle(items, random) {
+  const result = [...items];
+  for (let index = result.length - 1; index > 0; index -= 1) {
+    const next = Math.floor(random() * (index + 1));
+    [result[index], result[next]] = [result[next], result[index]];
+  }
+  return result;
+}
+
+function createRoute(seed) {
+  const random = mulberry32(seed);
+  const selected = DIMENSION_KEYS.flatMap((dimension) =>
+    shuffle(
+      QUESTIONS.filter((question) => question.dimension === dimension),
+      random,
+    )
+      .slice(0, QUESTIONS_PER_DIMENSION)
+      .map((question) => question.id),
+  );
+  return shuffle(selected, random);
+}
+
+function createInitialState() {
+  const seed = randomSeed();
+  return {
+    seed,
+    routeIds: createRoute(seed),
+    current: 0,
+    answers: {},
+    startedAt: null,
+    completedAt: null,
+  };
+}
+
+function loadState() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    const validRoute =
+      Array.isArray(saved?.routeIds) &&
+      saved.routeIds.length === ROUTE_LENGTH &&
+      saved.routeIds.every((id) => QUESTIONS.some((question) => question.id === id));
+    if (validRoute) return saved;
+  } catch {
+    localStorage.removeItem(STORAGE_KEY);
+  }
+  return createInitialState();
+}
+
+function persist() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function currentQuestion() {
+  return QUESTIONS.find((question) => question.id === state.routeIds[state.current]);
+}
+
+function orderedOptions(question) {
+  const seed = state.seed ^ hashText(question.id);
+  return shuffle(question.options, mulberry32(seed));
+}
+
+function showScreen(name) {
+  screens.forEach((screen) => {
+    const active = screen.dataset.screen === name;
+    screen.classList.toggle("is-active", active);
+    screen.setAttribute("aria-hidden", String(!active));
+  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function renderMethod() {
+  document.querySelector("#methodDimensions").innerHTML = DIMENSION_KEYS.map(
+    (key) => `
+      <article>
+        <strong>${DIMENSIONS[key].title}</strong>
+        <p>${DIMENSIONS[key].description}</p>
+      </article>
+    `,
+  ).join("");
+}
+
+function renderLearning(question, answerId) {
+  const answer = question.options.find((option) => option.id === answerId);
+  if (!answer) {
+    learningCard.hidden = true;
+    return;
+  }
+  choiceInsight.textContent = DIMENSIONS[question.dimension].feedback[answer.score];
+  principleInsight.textContent = question.principle;
+  learningCard.hidden = false;
+}
+
+function renderQuestion() {
+  const question = currentQuestion();
+  const selectedId = state.answers[question.id];
+  const progress = Math.round(((state.current + 1) / ROUTE_LENGTH) * 100);
+
+  document.querySelector("#progressLabel").textContent =
+    `Ситуация ${state.current + 1} из ${ROUTE_LENGTH}`;
+  document.querySelector("#progressPercent").textContent = `${progress}%`;
+  document.querySelector("#progressFill").style.width = `${progress}%`;
+  document.querySelector(".progress-track").setAttribute(
+    "aria-valuenow",
+    String(state.current + 1),
+  );
+  document.querySelector("#questionTheme").textContent =
+    DIMENSIONS[question.dimension].title;
+  document.querySelector("#questionTitle").textContent = question.title;
+  document.querySelector("#questionText").textContent = question.text;
+  document.querySelector("#questionPrompt").textContent = question.prompt;
+
+  answersNode.innerHTML = orderedOptions(question)
+    .map(
+      (option, index) => `
+        <button
+          class="answer-option${selectedId === option.id ? " is-selected" : ""}"
+          type="button"
+          data-answer-id="${option.id}"
+          aria-pressed="${selectedId === option.id}"
+        >
+          <span class="answer-letter">${String.fromCharCode(65 + index)}</span>
+          <span>${option.text}</span>
+        </button>
+      `,
+    )
+    .join("");
+
+  answersNode.querySelectorAll("[data-answer-id]").forEach((button) => {
+    button.addEventListener("click", () => selectAnswer(question, button.dataset.answerId));
+  });
+
+  previousButton.disabled = state.current === 0;
+  nextButton.disabled = !selectedId;
+  nextButton.textContent =
+    state.current === ROUTE_LENGTH - 1
+      ? "Показать карту →"
+      : "Следующая ситуация →";
+  renderLearning(question, selectedId);
+}
+
+function selectAnswer(question, answerId) {
+  state.answers[question.id] = answerId;
+  persist();
+  answersNode.querySelectorAll("[data-answer-id]").forEach((button) => {
+    const selected = button.dataset.answerId === answerId;
+    button.classList.toggle("is-selected", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+  nextButton.disabled = false;
+  renderLearning(question, answerId);
+}
+
+function calculateResult() {
+  const totals = Object.fromEntries(DIMENSION_KEYS.map((key) => [key, 0]));
+  const counts = Object.fromEntries(DIMENSION_KEYS.map((key) => [key, 0]));
+
+  state.routeIds.forEach((questionId) => {
+    const question = QUESTIONS.find((item) => item.id === questionId);
+    const answer = question.options.find(
+      (option) => option.id === state.answers[questionId],
+    );
+    if (!answer) return;
+    totals[question.dimension] += answer.score;
+    counts[question.dimension] += 1;
+  });
+
+  const percentages = Object.fromEntries(
+    DIMENSION_KEYS.map((key) => [
+      key,
+      Math.round((totals[key] / (counts[key] * 3)) * 100),
+    ]),
+  );
+  const ordered = [...DIMENSION_KEYS].sort(
+    (a, b) => percentages[b] - percentages[a],
+  );
+  return {
+    percentages,
+    leading: ordered[0],
+    practice: ordered[ordered.length - 1],
+    code: createResultCode(),
+  };
+}
+
+function createResultCode() {
+  const route = state.routeIds
+    .map((id) => `${id}:${state.answers[id] || "-"}`)
+    .join("|");
+  return `L1-${hashText(route).toString(36).toUpperCase().padStart(7, "0")}`;
+}
+
+function getBand(percent) {
+  if (percent >= 82) return "выраженная опора";
+  if (percent >= 66) return "устойчивая опора";
+  if (percent >= 48) return "проявляется выборочно";
+  return "зона практики";
+}
+
+function renderResult() {
+  const result = calculateResult();
+  const leading = DIMENSIONS[result.leading];
+  const practice = DIMENSIONS[result.practice];
+
+  document.querySelector("#resultCode").textContent = result.code;
+  document.querySelector("#leadingTitle").textContent = leading.title;
+  document.querySelector("#leadingText").textContent =
+    "В этом маршруте эта сторона проявлялась наиболее последовательно.";
+  document.querySelector("#strengthTitle").textContent = leading.title;
+  document.querySelector("#strengthText").textContent = leading.strong;
+  document.querySelector("#practiceTitle").textContent = practice.title;
+  document.querySelector("#practiceText").textContent = practice.practice;
+  document.querySelector("#profileGrid").innerHTML = DIMENSION_KEYS.map((key) => {
+    const value = result.percentages[key];
+    return `
+      <article class="profile-item">
+        <div class="profile-item-top">
+          <strong>${DIMENSIONS[key].title}</strong>
+          <span>${getBand(value)}</span>
+        </div>
+        <div class="profile-bar" aria-label="${DIMENSIONS[key].title}: ${value}%">
+          <div style="width: ${value}%"></div>
+        </div>
+        <p>${DIMENSIONS[key].description}</p>
+      </article>
+    `;
+  }).join("");
+  showScreen("result");
+}
+
+function beginFlow() {
+  if (Object.keys(state.answers).length && !state.completedAt) {
+    renderQuestion();
+    showScreen("test");
+    return;
+  }
+  if (state.completedAt) {
+    renderResult();
+    return;
+  }
+  showScreen("intro");
+}
+
+function startRoute() {
+  if (!ageConsent.checked) {
+    consentHint.textContent =
+      "Подтверди совершеннолетие и понимание условий пилота.";
+    ageConsent.focus();
+    return;
+  }
+  consentHint.textContent = "";
+  if (!state.startedAt) state.startedAt = new Date().toISOString();
+  persist();
+  renderQuestion();
+  showScreen("test");
+}
+
+function finishRoute() {
+  if (Object.keys(state.answers).length !== ROUTE_LENGTH) return;
+  state.completedAt = new Date().toISOString();
+  persist();
+  renderResult();
+}
+
+function createNewRoute() {
+  state = createInitialState();
+  persist();
+  ageConsent.checked = false;
+  consentHint.textContent = "";
+  showScreen("intro");
+}
+
+async function copyText(text, node, message) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.append(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+  }
+  node.textContent = message;
+}
+
+function renderRating(containerId, name) {
+  const root = document.querySelector(`#${containerId}`);
+  root.innerHTML = [1, 2, 3, 4, 5]
+    .map(
+      (value) => `
+        <button
+          class="rating-button"
+          type="button"
+          data-rating-name="${name}"
+          data-rating-value="${value}"
+          aria-label="${value} из 5"
+          aria-pressed="false"
+        >${value}</button>
+      `,
+    )
+    .join("");
+}
+
+function selectedRating(name) {
+  return (
+    document.querySelector(`[data-rating-name="${name}"].is-selected`)
+      ?.dataset.ratingValue || ""
+  );
+}
+
+function buildPilotReport() {
+  const result = calculateResult();
+  const duration =
+    state.startedAt && state.completedAt
+      ? Math.max(
+          0,
+          Math.round(
+            (new Date(state.completedAt) - new Date(state.startedAt)) / 1000,
+          ),
+        )
+      : null;
+  const profile = DIMENSION_KEYS.map(
+    (key) => `${DIMENSIONS[key].title}: ${getBand(result.percentages[key])}`,
+  ).join("; ");
+  const route = state.routeIds.join(",");
+  const answers = state.routeIds
+    .map((id) => `${id}:${state.answers[id]}`)
+    .join(",");
+
+  return [
+    "ПИЛОТ «ЛИДЕР» · СТУПЕНЬ 1 · ВЕРСИЯ 0.1",
+    `Код: ${result.code}`,
+    `Длительность, сек.: ${duration ?? "нет данных"}`,
+    `Профиль: ${profile}`,
+    `Набор ситуаций: ${route}`,
+    `Маршрут ответов: ${answers}`,
+    `Понятность 1–5: ${selectedRating("clarity") || "не указано"}`,
+    `Интерес 1–5: ${selectedRating("interest") || "не указано"}`,
+    `Узнал(а) полезное: ${document.querySelector("#learnedChoice").value || "не указано"}`,
+    `Продолжил(а) бы: ${document.querySelector("#continueChoice").value || "не указано"}`,
+    `Комментарий: ${document.querySelector("#generalFeedback").value.trim() || "—"}`,
+  ].join("\n");
+}
+
+document.querySelectorAll("[data-go]").forEach((button) => {
+  button.addEventListener("click", () => {
+    if (button.dataset.go === "result") renderResult();
+    else showScreen(button.dataset.go);
+  });
+});
+
+beginButton.addEventListener("click", beginFlow);
+methodButton.addEventListener("click", () => showScreen("method"));
+startTestButton.addEventListener("click", startRoute);
+
+previousButton.addEventListener("click", () => {
+  if (state.current === 0) return;
+  state.current -= 1;
+  persist();
+  renderQuestion();
+});
+
+nextButton.addEventListener("click", () => {
+  if (!state.answers[currentQuestion().id]) return;
+  if (state.current === ROUTE_LENGTH - 1) {
+    finishRoute();
+    return;
+  }
+  state.current += 1;
+  persist();
+  renderQuestion();
+});
+
+document.querySelector("#exitTestButton").addEventListener("click", () => {
+  exitDialog.showModal();
+});
+document.querySelector("#continueDialogButton").addEventListener("click", () => {
+  exitDialog.close();
+});
+document.querySelector("#leaveDialogButton").addEventListener("click", () => {
+  exitDialog.close();
+  showScreen("start");
+});
+document.querySelector("#feedbackButton").addEventListener("click", () => {
+  showScreen("feedback");
+});
+document.querySelector("#newRouteButton").addEventListener("click", createNewRoute);
+document.querySelector("#shareButton").addEventListener("click", () => {
+  const result = calculateResult();
+  copyText(
+    [
+      "Я прошёл первую ступень проекта «ЛИДЕР» — «Власть начинается с себя».",
+      `Моя наиболее заметная опора: ${DIMENSIONS[result.leading].title}.`,
+      "Каждому участнику достаётся свой маршрут из банка жизненных ситуаций.",
+    ].join("\n"),
+    document.querySelector("#shareStatus"),
+    "Текст результата скопирован.",
+  );
+});
+
+document.querySelector("#copyPilotReport").addEventListener("click", () => {
+  copyText(
+    buildPilotReport(),
+    document.querySelector("#feedbackStatus"),
+    "Обезличенный отчёт скопирован.",
+  );
+});
+
+document.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-rating-name]");
+  if (!button) return;
+  document
+    .querySelectorAll(`[data-rating-name="${button.dataset.ratingName}"]`)
+    .forEach((item) => {
+      const selected = item.dataset.ratingValue === button.dataset.ratingValue;
+      item.classList.toggle("is-selected", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+});
+
+renderMethod();
+renderRating("clarityRating", "clarity");
+renderRating("interestRating", "interest");
+
+if (state.completedAt) {
+  beginButton.firstChild.textContent = "Посмотреть результат ";
+} else if (Object.keys(state.answers).length) {
+  beginButton.firstChild.textContent = "Продолжить маршрут ";
+}
+</script>
+  </body>
+</html>

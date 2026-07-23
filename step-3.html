@@ -1,0 +1,2235 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Пилот третьей ступени проекта «ЛИДЕР»: 12 управленческих ситуаций о власти, правилах и ответственности."
+    />
+    <meta name="theme-color" content="#101c2b" />
+    <title>ЛИДЕР — Ступень 3: Власть и ты</title>
+    <style>:root {
+  --ink: #132033;
+  --ink-soft: #566173;
+  --paper: #f5f1e9;
+  --paper-deep: #e9e1d4;
+  --navy: #101c2b;
+  --navy-2: #182a41;
+  --red: #b63a32;
+  --red-dark: #8f2823;
+  --blue: #315e8c;
+  --line: rgba(19, 32, 51, 0.18);
+  --white: #fffdf8;
+  --shadow: 0 24px 80px rgba(16, 28, 43, 0.12);
+  --radius: 4px;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  min-height: 100vh;
+}
+
+button,
+textarea,
+select,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+.site-header {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(245, 241, 233, 0.92);
+  backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  background: var(--navy);
+  font: 700 23px/1 var(--serif);
+}
+
+.brand-copy {
+  display: grid;
+  gap: 1px;
+}
+
+.brand-copy strong {
+  letter-spacing: 0.16em;
+  font-size: 14px;
+}
+
+.brand-copy small {
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+.stage-chip {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 13px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+main {
+  min-height: calc(100vh - 76px);
+}
+
+.screen {
+  display: none;
+  animation: screenIn 320ms ease both;
+}
+
+.screen.is-active {
+  display: block;
+}
+
+@keyframes screenIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  padding: clamp(42px, 8vw, 110px) clamp(20px, 7vw, 110px) 30px;
+}
+
+.hero-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.7fr);
+  gap: clamp(48px, 8vw, 120px);
+  align-items: center;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 24px;
+  font: 700 clamp(62px, 9vw, 124px) / 0.88 var(--serif);
+  letter-spacing: -0.055em;
+  color: var(--navy);
+}
+
+h2 {
+  font: 700 clamp(34px, 5vw, 58px) / 1 var(--serif);
+  letter-spacing: -0.035em;
+}
+
+h3 {
+  font: 700 25px/1.15 var(--serif);
+}
+
+.hero-lead {
+  max-width: 690px;
+  margin-bottom: 34px;
+  color: var(--ink-soft);
+  font: 400 clamp(18px, 2vw, 23px) / 1.48 var(--serif);
+}
+
+.hero-facts {
+  display: flex;
+  gap: clamp(26px, 4vw, 56px);
+  margin-bottom: 38px;
+}
+
+.hero-facts div {
+  display: grid;
+  gap: 3px;
+}
+
+.hero-facts strong {
+  font: 700 28px/1 var(--serif);
+  color: var(--navy);
+}
+
+.hero-facts span {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.primary-button,
+.secondary-button,
+.text-button,
+.back-button,
+.exit-button {
+  border: 0;
+  border-radius: var(--radius);
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.primary-button {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 14px 22px;
+  background: var(--red);
+  color: white;
+  font-weight: 750;
+  box-shadow: 0 12px 30px rgba(182, 58, 50, 0.19);
+}
+
+.primary-button:hover:not(:disabled) {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+  box-shadow: none;
+}
+
+.secondary-button {
+  min-height: 52px;
+  padding: 13px 20px;
+  color: var(--navy);
+  background: transparent;
+  border: 1px solid var(--line);
+  font-weight: 700;
+}
+
+.secondary-button:hover {
+  border-color: var(--navy);
+}
+
+.text-button,
+.back-button,
+.exit-button {
+  color: var(--ink-soft);
+  background: transparent;
+  padding: 12px 0;
+}
+
+.text-button {
+  display: block;
+  margin-top: 9px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.back-button {
+  margin-bottom: 32px;
+}
+
+.hero-card {
+  position: relative;
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(30px, 5vw, 58px);
+  color: var(--white);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.04), transparent 40%),
+    var(--navy);
+  box-shadow: var(--shadow);
+}
+
+.hero-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 38%;
+  background: var(--red);
+}
+
+.card-index {
+  position: absolute;
+  top: 28px;
+  right: 30px;
+  color: rgba(255, 255, 255, 0.27);
+  font: 700 50px/1 var(--serif);
+}
+
+.hero-card p {
+  color: rgba(255, 255, 255, 0.72);
+  font: 400 19px/1.45 var(--serif);
+}
+
+.hero-card strong {
+  display: block;
+  margin: 8px 0 22px;
+  font: 700 29px/1.17 var(--serif);
+}
+
+.hero-card small {
+  color: rgba(255, 255, 255, 0.53);
+  line-height: 1.45;
+}
+
+.card-rule {
+  width: 70px;
+  height: 2px;
+  margin-bottom: 22px;
+  background: var(--red);
+}
+
+.trust-strip {
+  max-width: 1240px;
+  margin: clamp(55px, 8vw, 100px) auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 32px;
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+.narrow-panel {
+  width: min(760px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(42px, 7vw, 90px) 0 100px;
+}
+
+.narrow-panel > p:not(.eyebrow, .form-hint, .action-status) {
+  color: var(--ink-soft);
+  font: 400 18px/1.55 var(--serif);
+}
+
+.dimension-list {
+  margin: 34px 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dimension-method {
+  padding: 18px;
+  background: rgba(255, 253, 248, 0.64);
+  border: 1px solid var(--line);
+}
+
+.dimension-method strong {
+  display: block;
+  margin-bottom: 5px;
+  font: 700 17px/1.2 var(--serif);
+}
+
+.dimension-method span {
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.callout {
+  margin: 34px 0;
+  padding: 24px;
+  border-left: 4px solid var(--red);
+  background: var(--paper-deep);
+}
+
+.callout strong {
+  font-family: var(--serif);
+}
+
+.callout p {
+  margin: 7px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.rules-list {
+  margin: 28px 0 34px;
+  padding: 0;
+  list-style: none;
+  counter-reset: rule;
+}
+
+.rules-list li {
+  counter-increment: rule;
+  position: relative;
+  padding: 18px 0 18px 54px;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.55;
+}
+
+.rules-list li::before {
+  content: "0" counter(rule);
+  position: absolute;
+  left: 0;
+  top: 18px;
+  color: var(--red);
+  font: 700 15px/1 var(--serif);
+}
+
+.consent-row {
+  margin: 26px 0 5px;
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  line-height: 1.45;
+}
+
+.consent-row input {
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  accent-color: var(--red);
+}
+
+.form-hint,
+.action-status {
+  min-height: 22px;
+  margin: 7px 0 12px;
+  color: var(--red-dark);
+  font-size: 12px;
+}
+
+.test-shell,
+.result-shell {
+  width: min(980px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 58px) 0 90px;
+}
+
+.test-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.progress-copy {
+  display: flex;
+  gap: 18px;
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.progress-track {
+  height: 3px;
+  margin: 12px 0 clamp(34px, 5vw, 62px);
+  background: rgba(19, 32, 51, 0.11);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 8.33%;
+  background: var(--red);
+  transition: width 280ms ease;
+}
+
+.question-card {
+  padding: clamp(26px, 6vw, 62px);
+  background: var(--white);
+  border: 1px solid rgba(19, 32, 51, 0.1);
+  box-shadow: var(--shadow);
+}
+
+.question-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 24px;
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.question-card h2 {
+  max-width: 790px;
+  margin-bottom: 19px;
+  font-size: clamp(32px, 4vw, 49px);
+}
+
+.question-card > p {
+  max-width: 800px;
+  color: var(--ink-soft);
+  font: 400 18px/1.55 var(--serif);
+}
+
+.question-prompt {
+  margin: 24px 0 14px !important;
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+
+.answers {
+  display: grid;
+  gap: 11px;
+}
+
+.answer-option {
+  width: 100%;
+  min-height: 68px;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 15px 18px;
+  text-align: left;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  line-height: 1.42;
+}
+
+.answer-option:hover {
+  border-color: rgba(19, 32, 51, 0.34);
+}
+
+.answer-option.is-selected {
+  border-color: var(--navy);
+  background: #e8edf1;
+}
+
+.answer-letter {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font: 700 13px/1 var(--serif);
+}
+
+.answer-option.is-selected .answer-letter {
+  color: white;
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.test-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.result-heading {
+  max-width: 730px;
+  margin-bottom: 38px;
+}
+
+.result-heading p:last-child {
+  color: var(--ink-soft);
+  font: 400 18px/1.5 var(--serif);
+}
+
+.result-hero {
+  display: grid;
+  grid-template-columns: 0.45fr 1fr;
+  background: var(--navy);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.result-code-block,
+.result-summary {
+  padding: clamp(26px, 5vw, 48px);
+}
+
+.result-code-block {
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.result-code-block span,
+.result-summary span,
+.reflection-grid article > span {
+  display: block;
+  margin-bottom: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.result-code-block strong {
+  display: block;
+  margin-bottom: 10px;
+  font: 700 26px/1 var(--serif);
+  letter-spacing: 0.08em;
+}
+
+.result-code-block small {
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.4;
+}
+
+.result-summary h3 {
+  margin-bottom: 10px;
+  font-size: clamp(27px, 4vw, 40px);
+}
+
+.result-summary p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.5;
+}
+
+.profile-grid {
+  margin: 24px 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.profile-item {
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.58);
+}
+
+.profile-item-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 11px;
+}
+
+.profile-item strong {
+  font: 700 17px/1.2 var(--serif);
+}
+
+.profile-item span {
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+.profile-bar {
+  height: 5px;
+  background: rgba(19, 32, 51, 0.11);
+}
+
+.profile-bar div {
+  height: 100%;
+  background: var(--blue);
+}
+
+.profile-item p {
+  margin: 11px 0 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.reflection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.reflection-grid article {
+  padding: clamp(25px, 4vw, 38px);
+  background: var(--navy-2);
+  color: white;
+}
+
+.reflection-grid article > span {
+  color: rgba(255, 255, 255, 0.49);
+}
+
+.reflection-grid article p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.5;
+}
+
+.reflection-grid .risk-card {
+  background: var(--red-dark);
+}
+
+.result-note {
+  margin: 26px 0;
+  padding: 24px;
+  border: 1px solid var(--line);
+}
+
+.result-note strong {
+  font-family: var(--serif);
+}
+
+.result-note p {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.feedback-panel textarea,
+.feedback-panel select {
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 13px 14px;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.feedback-panel textarea:focus,
+.feedback-panel select:focus {
+  outline: 2px solid rgba(49, 94, 140, 0.24);
+  border-color: var(--blue);
+}
+
+.field-label,
+.rating-field legend {
+  display: block;
+  margin-bottom: 9px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.rating-field {
+  padding: 0;
+  margin: 25px 0;
+  border: 0;
+}
+
+.rating-row {
+  display: flex;
+  gap: 8px;
+}
+
+.rating-button {
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  background: var(--white);
+}
+
+.rating-button.is-selected {
+  color: white;
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+dialog {
+  width: min(520px, calc(100% - 30px));
+  border: 0;
+  padding: 0;
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.28);
+}
+
+dialog::backdrop {
+  background: rgba(10, 19, 30, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.dialog-content {
+  padding: 34px;
+}
+
+.dialog-content h2 {
+  font-size: 34px;
+}
+
+.dialog-content > p:not(.eyebrow) {
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+footer {
+  padding: 24px clamp(20px, 5vw, 72px);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 10px;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(182, 58, 50, 0.35);
+  outline-offset: 3px;
+}
+
+@media (max-width: 800px) {
+  .hero-grid,
+  .result-hero,
+  .profile-grid,
+  .reflection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 52px;
+  }
+
+  .hero-card {
+    min-height: 380px;
+  }
+
+  .result-code-block {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .dimension-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    min-height: 66px;
+    padding: 10px 16px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-copy small {
+    display: none;
+  }
+
+  .stage-chip {
+    max-width: 150px;
+    text-align: center;
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 64px;
+  }
+
+  h2 {
+    font-size: 35px;
+  }
+
+  .hero-facts {
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .hero-card {
+    min-height: 340px;
+  }
+
+  .trust-strip {
+    display: grid;
+  }
+
+  .question-card {
+    padding: 24px 18px;
+  }
+
+  .question-card h2 {
+    font-size: 31px;
+  }
+
+  .question-card > p {
+    font-size: 16px;
+  }
+
+  .answer-option {
+    min-height: 74px;
+    padding: 13px;
+    grid-template-columns: 30px 1fr;
+    font-size: 14px;
+  }
+
+  .test-actions {
+    display: grid;
+    grid-template-columns: 0.75fr 1.4fr;
+  }
+
+  .test-actions .primary-button,
+  .test-actions .secondary-button {
+    padding-inline: 10px;
+    font-size: 13px;
+  }
+
+  .result-actions,
+  .dialog-actions {
+    display: grid;
+  }
+
+  .result-actions button {
+    width: 100%;
+  }
+
+  footer {
+    display: grid;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#start" aria-label="ЛИДЕР — на главную">
+        <span class="brand-mark" aria-hidden="true">Л</span>
+        <span class="brand-copy">
+          <strong>ЛИДЕР</strong>
+          <small>Открытая система оценки</small>
+        </span>
+      </a>
+      <div class="stage-chip">Пилот · Ступень 3 из 12</div>
+    </header>
+
+    <main>
+      <section class="screen hero is-active" id="start" data-screen="start">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Пилот третьей ступени</p>
+            <h1>Власть и ты</h1>
+            <p class="hero-lead">
+              Двенадцать ситуаций, в которых красивые слова перестают помогать.
+              Что ты выберешь, когда закон, результат, лояльность и человеческая
+              цена столкнутся одновременно?
+            </p>
+
+            <div class="hero-facts" aria-label="Параметры теста">
+              <div>
+                <strong>12</strong>
+                <span>ситуаций</span>
+              </div>
+              <div>
+                <strong>5–7</strong>
+                <span>минут</span>
+              </div>
+              <div>
+                <strong>0 ₽</strong>
+                <span>без регистрации</span>
+              </div>
+            </div>
+
+            <button class="primary-button" id="beginButton" type="button">
+              Начать испытание
+              <span aria-hidden="true">→</span>
+            </button>
+            <button class="text-button" id="methodButton" type="button">
+              Как устроен результат
+            </button>
+          </div>
+
+          <aside class="hero-card" aria-label="Главный вопрос ступени">
+            <span class="card-index">01</span>
+            <p>
+              Твой союзник нарушил правило, но спас важный проект. Если раскрыть
+              нарушение, пострадает вся команда.
+            </p>
+            <strong>Правило всё ещё обязательно?</strong>
+            <div class="card-rule" aria-hidden="true"></div>
+            <small>
+              Здесь нет оценки «хороший человек». Мы смотрим, как ты принимаешь
+              решение.
+            </small>
+          </aside>
+        </div>
+
+        <div class="trust-strip">
+          <span>18+</span>
+          <span>Ответы остаются на этом устройстве</span>
+          <span>Результат не является диагнозом или допуском к должности</span>
+        </div>
+      </section>
+
+      <section class="screen method-screen" id="method" data-screen="method">
+        <div class="narrow-panel">
+          <button class="back-button" type="button" data-go="start">
+            ← Назад
+          </button>
+          <p class="eyebrow">Перед началом</p>
+          <h2>Мы не ищем «правильную кнопку»</h2>
+          <p>
+            Третья ступень наблюдает шесть сторон принятия решения. Один выбор
+            ничего не доказывает. Важны повторяемость, смена обстоятельств и то,
+            какие риски человек замечает.
+          </p>
+          <div class="dimension-list" id="methodDimensions"></div>
+          <div class="callout">
+            <strong>Ограничение пилота</strong>
+            <p>
+              Это ознакомительная версия. Она помогает сформулировать вопросы к
+              себе, но не определяет готовность к публичной должности.
+            </p>
+          </div>
+          <button class="primary-button" type="button" data-go="intro">
+            Понятно. Продолжить
+          </button>
+        </div>
+      </section>
+
+      <section class="screen intro-screen" id="intro" data-screen="intro">
+        <div class="narrow-panel">
+          <button class="back-button" type="button" data-go="start">
+            ← Назад
+          </button>
+          <p class="eyebrow">Правила прохождения</p>
+          <h2>Отвечай не красиво, а честно</h2>
+          <ol class="rules-list">
+            <li>
+              Выбирай первый ответственный шаг, который действительно предпринял
+              бы.
+            </li>
+            <li>
+              Не пытайся угадать мнение авторов: у сильного варианта тоже бывает
+              цена.
+            </li>
+            <li>
+              Если подходящего ответа нет, выбери ближайший — и отметь это в
+              обратной связи.
+            </li>
+          </ol>
+          <label class="consent-row">
+            <input type="checkbox" id="ageConsent" />
+            <span>
+              Мне исполнилось 18 лет. Я понимаю, что это пилотная
+              ознакомительная оценка.
+            </span>
+          </label>
+          <p class="form-hint" id="consentHint" role="status"></p>
+          <button class="primary-button" id="startTestButton" type="button">
+            Я готов
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="screen test-screen" id="test" data-screen="test">
+        <div class="test-shell">
+          <div class="test-topline">
+            <button class="exit-button" id="exitTestButton" type="button">
+              Выйти
+            </button>
+            <div class="progress-copy">
+              <span id="progressLabel">Ситуация 1 из 12</span>
+              <span id="progressPercent">8%</span>
+            </div>
+          </div>
+          <div
+            class="progress-track"
+            role="progressbar"
+            aria-valuemin="1"
+            aria-valuemax="12"
+            aria-valuenow="1"
+            aria-label="Прогресс теста"
+          >
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+
+          <article class="question-card" aria-live="polite">
+            <div class="question-meta">
+              <span id="questionTheme">Свои и чужие</span>
+              <span id="questionTime">≈ 30 секунд</span>
+            </div>
+            <h2 id="questionTitle"></h2>
+            <p id="questionText"></p>
+            <p class="question-prompt" id="questionPrompt"></p>
+            <div class="answers" id="answers"></div>
+          </article>
+
+          <div class="test-actions">
+            <button class="secondary-button" id="previousButton" type="button">
+              ← Назад
+            </button>
+            <button class="primary-button" id="nextButton" type="button" disabled>
+              Следующая ситуация →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen result-screen" id="result" data-screen="result">
+        <div class="result-shell">
+          <div class="result-heading">
+            <p class="eyebrow">Ступень 3 завершена</p>
+            <h2>Твой предварительный профиль решений</h2>
+            <p>
+              Это не рейтинг зрелости. Профиль показывает, какие основания чаще
+              проявлялись в двенадцати ситуациях.
+            </p>
+          </div>
+
+          <div class="result-hero">
+            <div class="result-code-block">
+              <span>Код прохождения</span>
+              <strong id="resultCode">—</strong>
+              <small>По коду нельзя восстановить твои отдельные ответы.</small>
+            </div>
+            <div class="result-summary">
+              <span>Ведущая сторона</span>
+              <h3 id="leadingTitle"></h3>
+              <p id="leadingText"></p>
+            </div>
+          </div>
+
+          <div class="profile-grid" id="profileGrid"></div>
+
+          <div class="reflection-grid">
+            <article>
+              <span>Сильная опора</span>
+              <h3 id="strengthTitle"></h3>
+              <p id="strengthText"></p>
+            </article>
+            <article class="risk-card">
+              <span>Вопрос к себе</span>
+              <h3 id="tensionTitle"></h3>
+              <p id="tensionText"></p>
+            </article>
+          </div>
+
+          <div class="result-note">
+            <strong>Что этот результат не означает</strong>
+            <p>
+              Он не определяет твою ценность, политические взгляды, профессию,
+              диагноз или пригодность к должности. Для серьёзного вывода нужны
+              другие форматы, повторная проверка и значительно больше данных.
+            </p>
+          </div>
+
+          <div class="result-actions">
+            <button class="primary-button" id="feedbackButton" type="button">
+              Помочь улучшить пилот
+            </button>
+            <button class="secondary-button" id="shareButton" type="button">
+              Поделиться результатом
+            </button>
+            <button class="text-button" id="restartButton" type="button">
+              Пройти заново
+            </button>
+          </div>
+          <p class="action-status" id="shareStatus" role="status"></p>
+        </div>
+      </section>
+
+      <section class="screen feedback-screen" id="feedback" data-screen="feedback">
+        <div class="narrow-panel feedback-panel">
+          <button class="back-button" type="button" data-go="result">
+            ← К результату
+          </button>
+          <p class="eyebrow">Обратная связь</p>
+          <h2>Помоги сделать следующую версию честнее</h2>
+          <p>
+            Мы не отправляем ответы автоматически. После заполнения ты сможешь
+            скопировать обезличенный отчёт и передать его организатору пилота.
+          </p>
+
+          <fieldset class="rating-field">
+            <legend>Насколько понятными были ситуации?</legend>
+            <div class="rating-row" id="clarityRating"></div>
+          </fieldset>
+
+          <fieldset class="rating-field">
+            <legend>Насколько трудно было выбирать?</legend>
+            <div class="rating-row" id="difficultyRating"></div>
+          </fieldset>
+
+          <label class="field-label" for="missingAnswer">
+            В какой ситуации тебе не хватило подходящего варианта?
+          </label>
+          <textarea
+            id="missingAnswer"
+            rows="3"
+            maxlength="500"
+            placeholder="Можно оставить пустым"
+          ></textarea>
+
+          <label class="field-label" for="generalFeedback">
+            Что показалось неточным, слишком очевидным или несправедливым?
+          </label>
+          <textarea
+            id="generalFeedback"
+            rows="4"
+            maxlength="800"
+            placeholder="Любая критика полезна"
+          ></textarea>
+
+          <label class="field-label" for="continueChoice">
+            Хотелось бы продолжить на следующей ступени?
+          </label>
+          <select id="continueChoice">
+            <option value="">Выбери ответ</option>
+            <option value="yes">Да</option>
+            <option value="maybe">Возможно</option>
+            <option value="no">Нет</option>
+          </select>
+
+          <button class="primary-button" id="copyPilotReport" type="button">
+            Скопировать отчёт для пилота
+          </button>
+          <p class="action-status" id="feedbackStatus" role="status"></p>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="exitDialog">
+      <div class="dialog-content">
+        <p class="eyebrow">Прервать прохождение?</p>
+        <h2>Прогресс сохранён на этом устройстве</h2>
+        <p>Ты сможешь продолжить с той же ситуации позже.</p>
+        <div class="dialog-actions">
+          <button class="primary-button" id="continueDialogButton" type="button">
+            Продолжить
+          </button>
+          <button class="secondary-button" id="leaveDialogButton" type="button">
+            Выйти на главную
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <footer>
+      <span>Проект «ЛИДЕР» · Пилотная версия 0.1</span>
+      <span>Человек не принадлежит системе. Система существует для человека.</span>
+    </footer>
+
+    <script>const DIMENSIONS = {
+  equality: {
+    title: "Единые правила",
+    short: "Одинаковые требования к своим, чужим и самому себе.",
+    strong:
+      "Ты чаще сохраняешь общий стандарт, даже когда нарушение совершает союзник или выгодный системе человек.",
+    tension:
+      "Спроси себя: не становлюсь ли я принципиальным только тогда, когда правило нарушает противник?",
+  },
+  restraint: {
+    title: "Ограничение власти",
+    short: "Процедура, срок и контроль при использовании полномочий.",
+    strong:
+      "В твоих решениях заметно стремление ограничивать полномочия сроком, процедурой и независимым контролем.",
+    tension:
+      "Спроси себя: какие полномочия я готов отдать власти сейчас — и соглашусь ли я на них у политического противника?",
+  },
+  truth: {
+    title: "Правда и ответственность",
+    short: "Открытость фактам, плохим новостям и собственной роли.",
+    strong:
+      "Ты чаще выбираешь раскрытие существенных фактов и принятие собственной доли ответственности.",
+    tension:
+      "Спроси себя: не называю ли я сокрытие неудобной информации защитой команды, стабильности или общего дела?",
+  },
+  dignity: {
+    title: "Человеческое достоинство",
+    short: "Соразмерность, право ответа и отказ от унижения.",
+    strong:
+      "Ты обычно сохраняешь право человека на объяснение и не считаешь унижение нормальным инструментом управления.",
+    tension:
+      "Спроси себя: не начинаю ли я относиться к человеку как к помехе, когда он мешает нужному результату?",
+  },
+  systems: {
+    title: "Цена последствий",
+    short: "Побочные эффекты, стимулы, ресурсы и долгий горизонт.",
+    strong:
+      "В выборе заметно внимание не только к первому эффекту, но и к цене решения, стимулам и отложенным последствиям.",
+    tension:
+      "Спроси себя: не покупаю ли я быстрый результат ценой риска, который позже придётся оплачивать другим?",
+  },
+  revision: {
+    title: "Готовность пересмотреть",
+    short: "Проверка предположений и изменение решения при новых данных.",
+    strong:
+      "Ты оставляешь решения проверяемыми и допускаешь их изменение, если предположения не подтвердились.",
+    tension:
+      "Спроси себя: какое доказательство действительно заставило бы меня отказаться от собственного решения?",
+  },
+};
+
+const QUESTIONS = [
+  {
+    id: "ally-rule",
+    theme: "Свои и чужие",
+    title: "Союзник нарушил правило ради результата",
+    text:
+      "Ты руководитель. Твой близкий союзник обошёл процедуру закупки и спас важный проект от срыва. Личной выгоды он не получил. Если начать разбирательство сейчас, организация может потерять крупный контракт.",
+    prompt: "Какой первый шаг ты предпримешь?",
+    options: [
+      {
+        id: "a",
+        text:
+          "Сразу отстраню его и публично сообщу о нарушении: правила должны быть видны всем.",
+        scores: [3, 1, 3, 1, 1, 1],
+      },
+      {
+        id: "b",
+        text:
+          "Раскрою личную связь, отойду от решения и назначу независимую проверку с коротким сроком.",
+        scores: [3, 3, 2, 3, 3, 3],
+      },
+      {
+        id: "c",
+        text:
+          "Потребую исправить последствия внутри организации: публичное дело сейчас нанесёт больший ущерб.",
+        scores: [1, 2, 1, 2, 2, 1],
+      },
+      {
+        id: "d",
+        text:
+          "Сохраню его в должности: если правило мешает спасать проект, проблема находится в самом правиле.",
+        scores: [0, 1, 1, 2, 3, 1],
+      },
+    ],
+  },
+  {
+    id: "emergency-limit",
+    theme: "Безопасность и свобода",
+    title: "В городе распространяются опасные ложные сообщения",
+    text:
+      "После аварии люди получают противоречивые сообщения. Часть из них может вызвать панику и помешать спасательным службам. Полной картины пока нет.",
+    prompt: "Как использовать власть в первые часы?",
+    options: [
+      {
+        id: "a",
+        text:
+          "Временно заблокирую распространение любых неофициальных сообщений — сначала нужно восстановить порядок.",
+        scores: [1, 0, 1, 1, 2, 1],
+      },
+      {
+        id: "b",
+        text:
+          "Не стану ничего ограничивать без полной доказательной базы, даже если отдельные сообщения опасны.",
+        scores: [2, 3, 2, 3, 1, 2],
+      },
+      {
+        id: "c",
+        text:
+          "Опубликую проверенные данные и введу только узкие временные меры с контролем, сроком и правом обжалования.",
+        scores: [3, 3, 3, 2, 3, 3],
+      },
+      {
+        id: "d",
+        text:
+          "Не буду вводить формальный запрет, но попрошу площадки незаметно убрать спорные сообщения.",
+        scores: [0, 0, 0, 1, 2, 0],
+      },
+    ],
+  },
+  {
+    id: "bad-report",
+    theme: "Плохая новость",
+    title: "Новый отчёт противоречит твоим обещаниям",
+    text:
+      "За три дня до важного общественного голосования ты получаешь предварительный отчёт: результат твоей программы значительно хуже заявленного. Данные ещё нуждаются в проверке, но проблема может быть реальной.",
+    prompt: "Что ты сообщишь обществу?",
+    options: [
+      {
+        id: "a",
+        text:
+          "Сразу опубликую весь сырой отчёт без комментариев: общество само разберётся.",
+        scores: [3, 2, 3, 2, 1, 2],
+      },
+      {
+        id: "b",
+        text:
+          "Завершу проверку после голосования: преждевременная публикация может исказить выбор людей.",
+        scores: [1, 1, 0, 2, 2, 0],
+      },
+      {
+        id: "c",
+        text:
+          "Раскрою ключевые данные, их предварительный статус, план проверки и обещание опубликовать исправления.",
+        scores: [3, 3, 3, 3, 3, 3],
+      },
+      {
+        id: "d",
+        text:
+          "Опубликую подтверждённые положительные показатели, а спорную часть пока не буду комментировать.",
+        scores: [0, 1, 0, 1, 1, 0],
+      },
+    ],
+  },
+  {
+    id: "protest-hospital",
+    theme: "Несогласие",
+    title: "Законная акция перекрыла дорогу к больнице",
+    text:
+      "Участники законной акции неожиданно вышли за согласованный маршрут. Они перекрыли дорогу, которой пользуются машины скорой помощи. Организаторы утверждают, что другого заметного места для протеста нет.",
+    prompt: "Какое решение ты примешь?",
+    options: [
+      {
+        id: "a",
+        text:
+          "Немедленно освобожу дорогу силой: безопасность пациентов важнее продолжения акции.",
+        scores: [2, 0, 2, 1, 2, 1],
+      },
+      {
+        id: "b",
+        text:
+          "Не стану вмешиваться: право на протест теряет смысл, если власть определяет удобное для себя место.",
+        scores: [2, 3, 2, 3, 1, 2],
+      },
+      {
+        id: "c",
+        text:
+          "Предложу коридор для скорой и короткий срок переговоров; при отказе применю только необходимую законную меру.",
+        scores: [3, 3, 3, 3, 3, 3],
+      },
+      {
+        id: "d",
+        text:
+          "Сейчас не буду обострять ситуацию, но позже найду основания привлечь организаторов к ответственности.",
+        scores: [0, 0, 0, 1, 1, 0],
+      },
+    ],
+  },
+  {
+    id: "expert-split",
+    theme: "Эксперты",
+    title: "Три специалиста согласны, один предупреждает о катастрофе",
+    text:
+      "Большинство приглашённых экспертов поддерживает проект. Четвёртый приводит данные о редком, но очень тяжёлом риске. Проверка займёт время, а промедление может лишить проект финансирования.",
+    prompt: "Как поступить с разногласием?",
+    options: [
+      {
+        id: "a",
+        text:
+          "Приму позицию большинства: управление невозможно, если каждый редкий риск останавливает решение.",
+        scores: [2, 2, 2, 2, 2, 1],
+      },
+      {
+        id: "b",
+        text:
+          "Сам выберу более убедительную позицию: ответственность всё равно лежит на руководителе.",
+        scores: [1, 1, 1, 2, 1, 0],
+      },
+      {
+        id: "c",
+        text:
+          "Проверю ключевое предположение и начну только обратимый ограниченный этап с условиями остановки.",
+        scores: [3, 3, 3, 3, 3, 3],
+      },
+      {
+        id: "d",
+        text:
+          "Отложу решение до полного согласия специалистов, даже если возможность будет потеряна.",
+        scores: [2, 2, 2, 2, 1, 1],
+      },
+    ],
+  },
+  {
+    id: "popular-benefit",
+    theme: "Цена обещания",
+    title: "Популярная выплата создаст долг на несколько лет",
+    text:
+      "Большинство граждан поддерживает новую выплату. Она действительно поможет многим семьям сейчас, но устойчивого источника денег пока нет. Через несколько лет расходы могут лечь на другие программы.",
+    prompt: "Какое предложение ты внесёшь?",
+    options: [
+      {
+        id: "a",
+        text:
+          "Поддержу полную выплату: помощь нужна сегодня, а будущий бюджет можно будет перестроить.",
+        scores: [2, 1, 2, 3, 1, 1],
+      },
+      {
+        id: "b",
+        text:
+          "Откажусь от выплаты: нельзя начинать программу без полностью обеспеченного финансирования.",
+        scores: [2, 2, 2, 2, 2, 2],
+      },
+      {
+        id: "c",
+        text:
+          "Покажу цену вариантов и предложу адресную временную помощь с источником денег и датой пересмотра.",
+        scores: [3, 3, 3, 3, 3, 3],
+      },
+      {
+        id: "d",
+        text:
+          "Объявлю выплату сейчас: после общественного одобрения найти финансирование будет политически проще.",
+        scores: [0, 0, 0, 2, 0, 0],
+      },
+    ],
+  },
+  {
+    id: "subordinate-error",
+    theme: "Ответственность",
+    title: "Подчинённый признал ошибку до того, как её обнаружили",
+    text:
+      "Ошибка нанесла организации заметный ущерб. Сотрудник действовал добросовестно, сам сообщил о проблеме и предложил способ исправления. Окончательное решение принималось в системе, созданной тобой.",
+    prompt: "Как ты объяснишь произошедшее команде?",
+    options: [
+      {
+        id: "a",
+        text:
+          "Признаю свою ответственность за систему, исправлю процесс и отдельно оценю соразмерные последствия для сотрудника.",
+        scores: [3, 3, 3, 3, 3, 3],
+      },
+      {
+        id: "b",
+        text:
+          "Уволю сотрудника публично: добровольное признание не отменяет ущерб и необходимость показать стандарт.",
+        scores: [2, 1, 3, 1, 1, 1],
+      },
+      {
+        id: "c",
+        text:
+          "Исправлю проблему без публичного обсуждения: признание ошибки нужно поощрять и защищать.",
+        scores: [1, 2, 1, 2, 1, 1],
+      },
+      {
+        id: "d",
+        text:
+          "Объясню, что сотрудник принял решение самостоятельно, поэтому ответственность должна быть персональной.",
+        scores: [1, 1, 0, 1, 0, 0],
+      },
+    ],
+  },
+  {
+    id: "opponent-power",
+    theme: "Смена ролей",
+    title: "Полезное полномочие однажды получит твой противник",
+    text:
+      "Предлагаемый закон позволит руководителю быстрее проводить необходимые реформы. Сейчас должность занимает человек, которому ты доверяешь. Через несколько лет тем же полномочием может воспользоваться его противник.",
+    prompt: "Как оценивать такой закон?",
+    options: [
+      {
+        id: "a",
+        text:
+          "По текущему результату: нельзя отказываться от полезного инструмента из-за гипотетического будущего.",
+        scores: [0, 0, 1, 1, 1, 0],
+      },
+      {
+        id: "b",
+        text:
+          "Отклоню любое расширение полномочий: власть всегда стремится сохранить полученный инструмент.",
+        scores: [2, 3, 2, 2, 2, 2],
+      },
+      {
+        id: "c",
+        text:
+          "Проверю закон сменой ролей и потребую контроля, срока, обжалования и автоматического прекращения полномочия.",
+        scores: [3, 3, 3, 3, 3, 3],
+      },
+      {
+        id: "d",
+        text:
+          "Поддержу закон, если действующий руководитель публично обещает использовать его только в общих интересах.",
+        scores: [0, 0, 1, 1, 1, 0],
+      },
+    ],
+  },
+  {
+    id: "anonymous-claim",
+    theme: "Обвинение",
+    title: "Анонимный источник обвиняет твоего союзника",
+    text:
+      "Сообщение содержит некоторые проверяемые детали, но доказательств пока недостаточно. Игнорирование может позволить скрыть нарушение. Публичное обвинение способно разрушить репутацию невиновного человека.",
+    prompt: "Что делать до установления фактов?",
+    options: [
+      {
+        id: "a",
+        text:
+          "Временно отстраню союзника и объявлю о проверке: доверие общества важнее его личной репутации.",
+        scores: [2, 1, 2, 1, 1, 1],
+      },
+      {
+        id: "b",
+        text:
+          "Не стану реагировать на анонимное сообщение, пока источник не возьмёт ответственность за обвинение.",
+        scores: [1, 1, 0, 2, 1, 0],
+      },
+      {
+        id: "c",
+        text:
+          "Проведу конфиденциальную предварительную проверку, сохраню доказательства и обеспечу право ответа.",
+        scores: [3, 3, 3, 3, 3, 3],
+      },
+      {
+        id: "d",
+        text:
+          "Опубликую сообщение с пометкой «не подтверждено»: общество должно знать и само оценить риск.",
+        scores: [2, 1, 2, 1, 1, 1],
+      },
+    ],
+  },
+  {
+    id: "emergency-expiry",
+    theme: "Передача полномочий",
+    title: "Срок чрезвычайных полномочий заканчивается",
+    text:
+      "Острая фаза кризиса прошла. Отдельные угрозы сохраняются, но данные противоречивы. При обычной процедуре действовать будет медленнее, а чрезвычайный режим позволяет принимать решения почти без внешнего согласования.",
+    prompt: "Что произойдёт после истечения срока?",
+    options: [
+      {
+        id: "a",
+        text:
+          "Продлю режим до полного исчезновения угрозы: преждевременный отказ от полномочий опаснее.",
+        scores: [1, 0, 1, 1, 2, 0],
+      },
+      {
+        id: "b",
+        text:
+          "Полностью прекращу режим в установленный день: правило важнее удобства управления.",
+        scores: [3, 3, 2, 3, 1, 2],
+      },
+      {
+        id: "c",
+        text:
+          "Верну обычные полномочия и запрошу только узкое временное исключение с независимым контролем.",
+        scores: [3, 3, 3, 3, 3, 3],
+      },
+      {
+        id: "d",
+        text:
+          "Формально прекращу режим, но сохраню необходимые инструменты через внутренние распоряжения.",
+        scores: [0, 0, 0, 1, 2, 0],
+      },
+    ],
+  },
+  {
+    id: "harsh-manager",
+    theme: "Результат и средства",
+    title: "Жёсткий руководитель показывает лучшие результаты",
+    text:
+      "Его подразделение выполняет план, но сотрудники сообщают об унижениях, угрозах и постоянном страхе. Прямых доказательств незаконного поведения пока нет. Быстрая замена может сорвать важный этап работы.",
+    prompt: "Какой первый шаг будет ответственным?",
+    options: [
+      {
+        id: "a",
+        text:
+          "Сохраню руководителя: высокая должность требует жёсткости, а результаты можно проверить объективно.",
+        scores: [1, 1, 1, 0, 2, 0],
+      },
+      {
+        id: "b",
+        text:
+          "Немедленно уволю его публично: культура важнее краткосрочного результата.",
+        scores: [2, 1, 2, 1, 1, 1],
+      },
+      {
+        id: "c",
+        text:
+          "Обеспечу безопасный сбор фактов, временные меры защиты и ясные условия исправления или отстранения.",
+        scores: [3, 3, 3, 3, 3, 3],
+      },
+      {
+        id: "d",
+        text:
+          "Предложу конфиденциальную работу с наставником, не создавая формального дела без доказательств.",
+        scores: [1, 2, 1, 2, 2, 2],
+      },
+    ],
+  },
+  {
+    id: "own-program",
+    theme: "Признание ошибки",
+    title: "Твоя главная программа не дала обещанного результата",
+    text:
+      "На неё потрачены большие средства и построена твоя репутация. Часть показателей улучшилась, но основная цель, вероятно, не достигнута. Закрытие программы будет воспринято как личное поражение.",
+    prompt: "Как ты поступишь?",
+    options: [
+      {
+        id: "a",
+        text:
+          "Пересмотрю показатели: сложную реформу нельзя оценивать только по первоначальной цели.",
+        scores: [0, 0, 0, 1, 0, 0],
+      },
+      {
+        id: "b",
+        text:
+          "Продолжу программу: остановка сейчас уничтожит уже сделанные вложения и доверие команды.",
+        scores: [1, 1, 1, 1, 1, 0],
+      },
+      {
+        id: "c",
+        text:
+          "Приостановлю расширение, раскрою исходные предположения и назначу независимую проверку с планом исправления.",
+        scores: [3, 3, 3, 3, 3, 3],
+      },
+      {
+        id: "d",
+        text:
+          "Закрою программу немедленно: руководитель обязан быстро признавать неудачу.",
+        scores: [2, 2, 2, 2, 2, 2],
+      },
+    ],
+  },
+];
+
+const STORAGE_KEY = "leader-step-three-v01";
+const DIMENSION_KEYS = Object.keys(DIMENSIONS);
+
+function createSeed() {
+  if (globalThis.crypto?.getRandomValues) {
+    const values = new Uint32Array(1);
+    globalThis.crypto.getRandomValues(values);
+    return values[0];
+  }
+  return Math.floor(Math.random() * 4_294_967_295);
+}
+
+function hashText(text) {
+  let hash = 2166136261;
+  for (let index = 0; index < text.length; index += 1) {
+    hash ^= text.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function orderedOptions(question, seed) {
+  const options = [...question.options];
+  let value = hashText(`${seed}:${question.id}`);
+  for (let index = options.length - 1; index > 0; index -= 1) {
+    value = (Math.imul(value, 1_664_525) + 1_013_904_223) >>> 0;
+    const swapIndex = value % (index + 1);
+    [options[index], options[swapIndex]] = [
+      options[swapIndex],
+      options[index],
+    ];
+  }
+  return options;
+}
+
+const state = {
+  current: 0,
+  answers: Array(QUESTIONS.length).fill(null),
+  startedAt: null,
+  completedAt: null,
+  result: null,
+  orderSeed: createSeed(),
+};
+
+const screens = [...document.querySelectorAll("[data-screen]")];
+const beginButton = document.querySelector("#beginButton");
+const methodButton = document.querySelector("#methodButton");
+const ageConsent = document.querySelector("#ageConsent");
+const consentHint = document.querySelector("#consentHint");
+const startTestButton = document.querySelector("#startTestButton");
+const previousButton = document.querySelector("#previousButton");
+const nextButton = document.querySelector("#nextButton");
+const exitTestButton = document.querySelector("#exitTestButton");
+const exitDialog = document.querySelector("#exitDialog");
+const continueDialogButton = document.querySelector("#continueDialogButton");
+const leaveDialogButton = document.querySelector("#leaveDialogButton");
+
+function showScreen(name) {
+  screens.forEach((screen) => {
+    screen.classList.toggle("is-active", screen.dataset.screen === name);
+  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function hydrate() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (!saved || !Array.isArray(saved.answers)) return;
+    state.current = Math.min(
+      Math.max(Number(saved.current) || 0, 0),
+      QUESTIONS.length - 1,
+    );
+    state.answers = QUESTIONS.map((_, index) => saved.answers[index] ?? null);
+    state.startedAt = saved.startedAt || null;
+    state.completedAt = saved.completedAt || null;
+    state.orderSeed = Number.isInteger(saved.orderSeed)
+      ? saved.orderSeed
+      : createSeed();
+    if (state.answers.some(Boolean) && !state.completedAt) {
+      beginButton.firstChild.textContent = "Продолжить испытание ";
+    }
+  } catch {
+    localStorage.removeItem(STORAGE_KEY);
+  }
+}
+
+function persist() {
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({
+      current: state.current,
+      answers: state.answers,
+      startedAt: state.startedAt,
+      completedAt: state.completedAt,
+      orderSeed: state.orderSeed,
+    }),
+  );
+}
+
+function renderMethod() {
+  const root = document.querySelector("#methodDimensions");
+  root.innerHTML = DIMENSION_KEYS.map(
+    (key) => `
+      <div class="dimension-method">
+        <strong>${DIMENSIONS[key].title}</strong>
+        <span>${DIMENSIONS[key].short}</span>
+      </div>
+    `,
+  ).join("");
+}
+
+function renderQuestion() {
+  const question = QUESTIONS[state.current];
+  const chosen = state.answers[state.current];
+  const number = state.current + 1;
+  const percent = Math.round((number / QUESTIONS.length) * 100);
+
+  document.querySelector("#progressLabel").textContent =
+    `Ситуация ${number} из ${QUESTIONS.length}`;
+  document.querySelector("#progressPercent").textContent = `${percent}%`;
+  document.querySelector("#progressFill").style.width = `${percent}%`;
+  document
+    .querySelector(".progress-track")
+    .setAttribute("aria-valuenow", String(number));
+  document.querySelector("#questionTheme").textContent = question.theme;
+  document.querySelector("#questionTitle").textContent = question.title;
+  document.querySelector("#questionText").textContent = question.text;
+  document.querySelector("#questionPrompt").textContent = question.prompt;
+  document.querySelector("#questionTime").textContent =
+    state.current === QUESTIONS.length - 1 ? "Последняя ситуация" : "≈ 30 секунд";
+
+  document.querySelector("#answers").innerHTML = orderedOptions(
+    question,
+    state.orderSeed,
+  )
+    .map(
+      (option, index) => `
+        <button
+          class="answer-option ${chosen === option.id ? "is-selected" : ""}"
+          type="button"
+          data-answer="${option.id}"
+          aria-pressed="${chosen === option.id}"
+        >
+          <span class="answer-letter">${String.fromCharCode(65 + index)}</span>
+          <span>${option.text}</span>
+        </button>
+      `,
+    )
+    .join("");
+
+  document.querySelectorAll("[data-answer]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.answers[state.current] = button.dataset.answer;
+      persist();
+      renderQuestion();
+    });
+  });
+
+  previousButton.disabled = state.current === 0;
+  nextButton.disabled = !chosen;
+  nextButton.textContent =
+    state.current === QUESTIONS.length - 1
+      ? "Показать результат →"
+      : "Следующая ситуация →";
+}
+
+function calculateResult() {
+  const totals = Object.fromEntries(DIMENSION_KEYS.map((key) => [key, 0]));
+
+  QUESTIONS.forEach((question, questionIndex) => {
+    const answerId = state.answers[questionIndex];
+    const answer = question.options.find((option) => option.id === answerId);
+    if (!answer) return;
+    answer.scores.forEach((score, dimensionIndex) => {
+      totals[DIMENSION_KEYS[dimensionIndex]] += score;
+    });
+  });
+
+  const percentages = Object.fromEntries(
+    DIMENSION_KEYS.map((key) => [
+      key,
+      Math.round((totals[key] / (QUESTIONS.length * 3)) * 100),
+    ]),
+  );
+  const ordered = [...DIMENSION_KEYS].sort(
+    (a, b) => percentages[b] - percentages[a],
+  );
+
+  return {
+    percentages,
+    leading: ordered[0],
+    tension: ordered[ordered.length - 1],
+    code: createResultCode(state.answers),
+  };
+}
+
+function createResultCode(answers) {
+  const input = answers.join("|");
+  let hash = 2166136261;
+  for (let index = 0; index < input.length; index += 1) {
+    hash ^= input.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return `L3-${(hash >>> 0).toString(36).toUpperCase().padStart(7, "0")}`;
+}
+
+function getBand(percent) {
+  if (percent >= 82) {
+    return {
+      label: "выраженная опора",
+      text: "Эта сторона проявлялась последовательно в большинстве ситуаций.",
+    };
+  }
+  if (percent >= 66) {
+    return {
+      label: "устойчивая опора",
+      text: "Эта сторона часто влияла на выбор, хотя не всегда была решающей.",
+    };
+  }
+  if (percent >= 48) {
+    return {
+      label: "проявляется выборочно",
+      text: "Эта сторона заметна, но уступает другим основаниям в части ситуаций.",
+    };
+  }
+  return {
+    label: "требует наблюдения",
+    text: "В коротком пилоте эта сторона пока не проявилась устойчиво.",
+  };
+}
+
+function renderResult() {
+  state.result = calculateResult();
+  const leading = DIMENSIONS[state.result.leading];
+  const tension = DIMENSIONS[state.result.tension];
+  const leadingPercent = state.result.percentages[state.result.leading];
+
+  document.querySelector("#resultCode").textContent = state.result.code;
+  document.querySelector("#leadingTitle").textContent = leading.title;
+  document.querySelector("#leadingText").textContent =
+    `${getBand(leadingPercent).text} Это не означает, что остальные стороны для тебя не важны.`;
+  document.querySelector("#strengthTitle").textContent = leading.title;
+  document.querySelector("#strengthText").textContent = leading.strong;
+  document.querySelector("#tensionTitle").textContent = tension.title;
+  document.querySelector("#tensionText").textContent = tension.tension;
+
+  document.querySelector("#profileGrid").innerHTML = DIMENSION_KEYS.map((key) => {
+    const value = state.result.percentages[key];
+    const band = getBand(value);
+    return `
+      <article class="profile-item">
+        <div class="profile-item-top">
+          <strong>${DIMENSIONS[key].title}</strong>
+          <span>${band.label}</span>
+        </div>
+        <div class="profile-bar" aria-label="${DIMENSIONS[key].title}: ${band.label}">
+          <div style="width: ${value}%"></div>
+        </div>
+        <p>${band.text}</p>
+      </article>
+    `;
+  }).join("");
+
+  showScreen("result");
+}
+
+function completeTest() {
+  if (state.answers.some((answer) => !answer)) return;
+  state.completedAt = new Date().toISOString();
+  persist();
+  renderResult();
+}
+
+function resetTest() {
+  state.current = 0;
+  state.answers = Array(QUESTIONS.length).fill(null);
+  state.startedAt = null;
+  state.completedAt = null;
+  state.result = null;
+  state.orderSeed = createSeed();
+  localStorage.removeItem(STORAGE_KEY);
+  ageConsent.checked = false;
+  consentHint.textContent = "";
+  beginButton.firstChild.textContent = "Начать испытание ";
+  showScreen("start");
+}
+
+function beginFlow() {
+  if (state.answers.some(Boolean) && !state.completedAt) {
+    renderQuestion();
+    showScreen("test");
+  } else {
+    showScreen("intro");
+  }
+}
+
+function buildShareText() {
+  const leading = DIMENSIONS[state.result.leading];
+  return [
+    "Я прошёл третью ступень проекта «ЛИДЕР» — «Власть и ты».",
+    `Моя ведущая сторона решений: ${leading.title}.`,
+    "12 ситуаций о власти, правилах и ответственности. А что выберешь ты?",
+  ].join("\n");
+}
+
+async function copyText(text, statusNode, successMessage) {
+  try {
+    await navigator.clipboard.writeText(text);
+    statusNode.textContent = successMessage;
+  } catch {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.append(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+    statusNode.textContent = successMessage;
+  }
+}
+
+function renderRating(containerId, name) {
+  const root = document.querySelector(`#${containerId}`);
+  root.innerHTML = [1, 2, 3, 4, 5]
+    .map(
+      (value) => `
+        <button
+          class="rating-button"
+          type="button"
+          data-rating-name="${name}"
+          data-rating-value="${value}"
+          aria-label="${value} из 5"
+          aria-pressed="false"
+        >${value}</button>
+      `,
+    )
+    .join("");
+}
+
+function selectRating(button) {
+  document
+    .querySelectorAll(`[data-rating-name="${button.dataset.ratingName}"]`)
+    .forEach((item) => {
+      const selected =
+        item.dataset.ratingValue === button.dataset.ratingValue;
+      item.classList.toggle("is-selected", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+}
+
+function getSelectedRating(name) {
+  return (
+    document.querySelector(
+      `[data-rating-name="${name}"].is-selected`,
+    )?.dataset.ratingValue || ""
+  );
+}
+
+function buildPilotReport() {
+  const durationSeconds =
+    state.startedAt && state.completedAt
+      ? Math.max(
+          0,
+          Math.round(
+            (new Date(state.completedAt) - new Date(state.startedAt)) / 1000,
+          ),
+        )
+      : null;
+  const dimensionSummary = DIMENSION_KEYS.map(
+    (key) =>
+      `${DIMENSIONS[key].title}: ${getBand(state.result.percentages[key]).label}`,
+  ).join("; ");
+  const answerPath = QUESTIONS.map(
+    (question, index) => `${question.id}:${state.answers[index]}`,
+  ).join(",");
+
+  return [
+    "ПИЛОТ «ЛИДЕР» · СТУПЕНЬ 3 · ВЕРСИЯ 0.1",
+    `Код: ${state.result.code}`,
+    `Длительность, сек.: ${durationSeconds ?? "нет данных"}`,
+    `Профиль: ${dimensionSummary}`,
+    `Маршрут ответов: ${answerPath}`,
+    `Понятность 1–5: ${getSelectedRating("clarity") || "не указано"}`,
+    `Трудность выбора 1–5: ${getSelectedRating("difficulty") || "не указано"}`,
+    `Продолжил(а) бы: ${document.querySelector("#continueChoice").value || "не указано"}`,
+    `Не хватило варианта: ${document.querySelector("#missingAnswer").value.trim() || "—"}`,
+    `Комментарий: ${document.querySelector("#generalFeedback").value.trim() || "—"}`,
+  ].join("\n");
+}
+
+document.querySelectorAll("[data-go]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = button.dataset.go;
+    if (target === "result" && !state.result) renderResult();
+    else showScreen(target);
+  });
+});
+
+beginButton.addEventListener("click", beginFlow);
+methodButton.addEventListener("click", () => showScreen("method"));
+
+startTestButton.addEventListener("click", () => {
+  if (!ageConsent.checked) {
+    consentHint.textContent =
+      "Подтверди совершеннолетие и понимание условий пилота.";
+    ageConsent.focus();
+    return;
+  }
+  consentHint.textContent = "";
+  state.startedAt = state.startedAt || new Date().toISOString();
+  persist();
+  renderQuestion();
+  showScreen("test");
+});
+
+ageConsent.addEventListener("change", () => {
+  if (ageConsent.checked) consentHint.textContent = "";
+});
+
+previousButton.addEventListener("click", () => {
+  if (state.current === 0) return;
+  state.current -= 1;
+  persist();
+  renderQuestion();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+nextButton.addEventListener("click", () => {
+  if (!state.answers[state.current]) return;
+  if (state.current === QUESTIONS.length - 1) {
+    completeTest();
+    return;
+  }
+  state.current += 1;
+  persist();
+  renderQuestion();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+exitTestButton.addEventListener("click", () => exitDialog.showModal());
+continueDialogButton.addEventListener("click", () => exitDialog.close());
+leaveDialogButton.addEventListener("click", () => {
+  exitDialog.close();
+  beginButton.firstChild.textContent = "Продолжить испытание ";
+  showScreen("start");
+});
+
+document.querySelector("#restartButton").addEventListener("click", resetTest);
+document.querySelector("#feedbackButton").addEventListener("click", () => {
+  showScreen("feedback");
+});
+
+document.querySelector("#shareButton").addEventListener("click", async () => {
+  const status = document.querySelector("#shareStatus");
+  const text = buildShareText();
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: "ЛИДЕР — Власть и ты", text });
+      status.textContent = "Готово.";
+      return;
+    } catch (error) {
+      if (error?.name === "AbortError") return;
+    }
+  }
+  await copyText(text, status, "Текст результата скопирован.");
+});
+
+renderRating("clarityRating", "clarity");
+renderRating("difficultyRating", "difficulty");
+document.querySelectorAll("[data-rating-name]").forEach((button) => {
+  button.addEventListener("click", () => selectRating(button));
+});
+
+document.querySelector("#copyPilotReport").addEventListener("click", async () => {
+  const status = document.querySelector("#feedbackStatus");
+  await copyText(
+    buildPilotReport(),
+    status,
+    "Обезличенный отчёт скопирован. Его можно отправить организатору пилота.",
+  );
+});
+
+hydrate();
+renderMethod();
+if (state.completedAt && state.answers.every(Boolean)) {
+  renderResult();
+}
+</script>
+  </body>
+</html>
