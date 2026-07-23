@@ -1345,7 +1345,7 @@ footer {
     </dialog>
 
     <footer>
-      <span>Проект «ЛИДЕР» · Ступень 2 · Пилот 0.1</span>
+      <span>Проект «ЛИДЕР» · Ступень 2 · Пилот 0.1.1</span>
       <span>Человек не принадлежит системе. Система существует для человека.</span>
     </footer>
 
@@ -2085,6 +2085,7 @@ const QUESTIONS = [
 const DIMENSION_KEYS = Object.keys(DIMENSIONS);
 const QUESTIONS_PER_DIMENSION = 2;
 const ROUTE_LENGTH = DIMENSION_KEYS.length * QUESTIONS_PER_DIMENSION;
+const CUSTOM_ANSWER_ID = "__custom__";
 
 const screens = [...document.querySelectorAll("[data-screen]")];
 const beginButton = document.querySelector("#beginButton");
@@ -2181,6 +2182,11 @@ function loadState() {
       saved.initialAnswers ||= {};
       saved.answers ||= {};
       saved.customAnswers ||= {};
+      Object.entries(saved.customAnswers).forEach(([questionId, text]) => {
+        if (!String(text).trim() || saved.answers[questionId]) return;
+        saved.answers[questionId] = CUSTOM_ANSWER_ID;
+        saved.initialAnswers[questionId] ||= CUSTOM_ANSWER_ID;
+      });
       return saved;
     }
   } catch {
@@ -2225,6 +2231,15 @@ function renderMethod() {
 }
 
 function renderLearning(question, answerId) {
+  if (answerId === CUSTOM_ANSWER_ID) {
+    choiceProtects.textContent =
+      "Твой самостоятельный способ действия и право не соглашаться с готовыми вариантами.";
+    choiceRisk.textContent =
+      "Система не присваивает такому ответу автоматический балл: его нужно анализировать отдельно.";
+    principleInsight.textContent = question.principle;
+    learningCard.hidden = false;
+    return;
+  }
   const answer = question.options.find((option) => option.id === answerId);
   if (!answer) {
     learningCard.hidden = true;
@@ -2303,6 +2318,8 @@ function selectAnswer(question, answerId) {
     state.initialAnswers[question.id] = answerId;
   }
   state.answers[question.id] = answerId;
+  delete state.customAnswers[question.id];
+  customAnswer.value = "";
   persist();
 
   answersNode.querySelectorAll("[data-answer-id]").forEach((button) => {
@@ -2504,7 +2521,7 @@ function buildPilotReport() {
   const answers = state.routeIds
     .map(
       (id) =>
-        `${id}:${state.initialAnswers[id] || "-"}>${state.answers[id] || "-"}`,
+        `${id}:${state.initialAnswers[id] === CUSTOM_ANSWER_ID ? "свой" : state.initialAnswers[id] || "-"}>${state.answers[id] === CUSTOM_ANSWER_ID ? "свой" : state.answers[id] || "-"}`,
     )
     .join(",");
   const custom = state.routeIds
@@ -2513,7 +2530,7 @@ function buildPilotReport() {
     .join(" | ");
 
   return [
-    "ПИЛОТ «ЛИДЕР» · СТУПЕНЬ 2 · ВЕРСИЯ 0.1",
+    "ПИЛОТ «ЛИДЕР» · СТУПЕНЬ 2 · ВЕРСИЯ 0.1.1",
     `Код: ${result.code}`,
     `Длительность, сек.: ${duration ?? "нет данных"}`,
     `Профиль: ${profile}`,
@@ -2568,8 +2585,32 @@ customAnswerToggle.addEventListener("click", () => {
 
 customAnswer.addEventListener("input", () => {
   const question = currentQuestion();
-  state.customAnswers[question.id] = customAnswer.value.trim();
-  if (!state.customAnswers[question.id]) delete state.customAnswers[question.id];
+  const text = customAnswer.value.trim();
+
+  if (text) {
+    state.customAnswers[question.id] = text;
+    if (!state.initialAnswers[question.id]) {
+      state.initialAnswers[question.id] = CUSTOM_ANSWER_ID;
+    }
+    state.answers[question.id] = CUSTOM_ANSWER_ID;
+
+    answersNode.querySelectorAll("[data-answer-id]").forEach((button) => {
+      button.classList.remove("is-selected");
+      button.setAttribute("aria-pressed", "false");
+    });
+    nextButton.disabled = false;
+    renderLearning(question, CUSTOM_ANSWER_ID);
+  } else {
+    delete state.customAnswers[question.id];
+    if (state.answers[question.id] === CUSTOM_ANSWER_ID) {
+      delete state.answers[question.id];
+      if (state.initialAnswers[question.id] === CUSTOM_ANSWER_ID) {
+        delete state.initialAnswers[question.id];
+      }
+    }
+    nextButton.disabled = !state.answers[question.id];
+    renderLearning(question, state.answers[question.id]);
+  }
   persist();
 });
 
